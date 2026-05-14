@@ -1,0 +1,387 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;color:var(--color-text-primary);background:transparent}
+.wrap{max-width:720px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.mono{font-family:'DM Mono',monospace}
+.serif{font-family:'DM Serif Display',serif}
+
+.hero{padding:2.5rem 0 2.5rem;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:2.5rem}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;color:#1D9E75;text-transform:uppercase;margin-bottom:10px}
+.hero-name{font-family:'DM Serif Display',serif;font-size:46px;line-height:1.08;margin-bottom:6px}
+.hero-name em{font-style:italic;color:#1D9E75}
+.hero-pronoun{font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;font-family:'DM Mono',monospace}
+.hero-bio{font-size:15px;color:var(--color-text-secondary);line-height:1.7;max-width:500px;margin-bottom:20px}
+.hero-quote{border-left:2px solid #1D9E75;padding:10px 16px;margin:20px 0;background:var(--color-background-secondary);border-radius:0 8px 8px 0}
+.hero-quote p{font-family:'DM Serif Display',serif;font-style:italic;font-size:16px;color:var(--color-text-primary);line-height:1.5}
+.hero-quote cite{font-size:12px;color:var(--color-text-secondary);font-family:'DM Mono',monospace;font-style:normal;margin-top:6px;display:block}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;padding:8px 16px;border-radius:8px;text-decoration:none;border:0.5px solid var(--color-border-secondary);color:var(--color-text-primary);background:var(--color-background-primary);cursor:pointer;transition:background 0.1s}
+.btn:hover{background:var(--color-background-secondary)}
+.btn.primary{background:#1D9E75;border-color:#0F6E56;color:#E1F5EE}
+.btn.primary:hover{background:#0F6E56}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.stat{background:var(--color-background-secondary);border-radius:8px;padding:12px}
+.stat-n{font-family:'DM Serif Display',serif;font-size:26px;color:#1D9E75}
+.stat-l{font-size:11px;color:var(--color-text-secondary);margin-top:2px;line-height:1.4}
+
+.sec-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.13em;color:var(--color-text-secondary);text-transform:uppercase;margin-bottom:16px}
+.section{margin-bottom:3rem}
+
+.dash-preview{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:16px;margin-bottom:10px}
+.dash-titlebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.dash-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.dash-dot-row{display:flex;gap:5px}
+.dash-dot{width:8px;height:8px;border-radius:50%;background:var(--color-border-secondary)}
+.dash-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.kpi-box{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:10px}
+.kpi-val{font-size:18px;font-weight:500;color:#1D9E75;font-family:'DM Mono',monospace}
+.kpi-lbl{font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+.dash-chart-row{display:grid;grid-template-columns:2fr 1fr;gap:8px}
+.chart-mock{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:10px;height:80px;display:flex;align-items:flex-end;gap:4px}
+.bar{border-radius:3px 3px 0 0;background:#9FE1CB;flex:1}
+.bar.hi{background:#1D9E75}
+.donut-mock{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:10px;height:80px;display:flex;align-items:center;justify-content:center;gap:8px}
+.donut-ring{width:52px;height:52px;border-radius:50%;border:8px solid #E1F5EE;border-top-color:#1D9E75;border-right-color:#5DCAA5}
+.donut-leg{font-size:10px;color:var(--color-text-secondary);line-height:1.8}
+
+.mis-mock{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:16px;margin-bottom:10px}
+.mis-flow{display:flex;align-items:center;gap:0;margin-bottom:14px;overflow:hidden}
+.mis-step{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:8px 10px;text-align:center;flex:1}
+.mis-step-icon{font-size:16px;color:#1D9E75;display:block}
+.mis-step-lbl{font-size:10px;color:var(--color-text-secondary);margin-top:3px}
+.mis-arrow{font-size:14px;color:var(--color-text-secondary);padding:0 4px;flex-shrink:0}
+.mis-table{width:100%;border-collapse:collapse}
+.mis-table th{font-size:10px;color:var(--color-text-secondary);font-weight:500;text-align:left;padding:4px 8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.mis-table td{font-size:11px;color:var(--color-text-primary);padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.mis-badge{font-family:'DM Mono',monospace;font-size:9px;padding:2px 6px;border-radius:4px}
+.mis-sent{background:#EAF3DE;color:#27500A}
+.mis-sched{background:#E1F5EE;color:#0F6E56}
+
+.proj-grid{display:grid;gap:1px;background:var(--color-border-tertiary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden}
+.proj-card{background:var(--color-background-primary);padding:1.1rem 1.3rem}
+.proj-card:hover{background:var(--color-background-secondary)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.proj-name{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.badge{font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.b-live{background:#E1F5EE;color:#0F6E56}
+.b-port{background:#E6F1FB;color:#0C447C}
+.b-acad{background:#FAEEDA;color:#633806}
+.proj-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.55;margin-bottom:8px}
+.metric-row{display:flex;gap:16px;margin-bottom:8px}
+.m{font-size:12px;color:var(--color-text-secondary)}
+.m strong{color:var(--color-text-primary);font-weight:500}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-family:'DM Mono',monospace;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+
+.timeline{position:relative;padding-left:20px;border-left:1.5px solid var(--color-border-secondary)}
+.tl-item{margin-bottom:1.5rem;position:relative}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:#1D9E75;border:2px solid var(--color-background-primary);position:absolute;left:-25px;top:4px}
+.tl-date{font-family:'DM Mono',monospace;font-size:11px;color:#1D9E75;margin-bottom:3px}
+.tl-role{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.tl-company{font-size:13px;color:var(--color-text-secondary);margin-bottom:6px}
+.tl-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;background:#E1F5EE;color:#0F6E56;margin-bottom:8px}
+.tl-bullets{font-size:13px;color:var(--color-text-secondary);line-height:1.7;list-style:none;padding:0}
+.tl-bullets li{padding-left:12px;position:relative;margin-bottom:3px}
+.tl-bullets li:before{content:"→";position:absolute;left:0;color:#1D9E75;font-size:11px;top:1px}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.skill-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:12px}
+.sk-title{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sk-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;flex-shrink:0}
+.sk-list{font-size:12px;color:var(--color-text-secondary);line-height:1.9}
+
+.cert-list{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;overflow:hidden}
+.cert-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.cert-row:last-child{border-bottom:none}
+.cert-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.cert-org{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.c-done{background:#EAF3DE;color:#27500A;font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px}
+.c-wip{background:#FAEEDA;color:#633806;font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px}
+
+.hackathon-strip{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px 16px;margin-bottom:2rem}
+.hack-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.hack-row:last-child{border-bottom:none}
+.hack-icon{color:#1D9E75;font-size:16px;flex-shrink:0}
+.hack-text{font-size:13px;color:var(--color-text-primary)}
+.hack-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+
+.open-banner{background:#E1F5EE;border:0.5px solid #9FE1CB;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:2rem}
+.open-dot{width:10px;height:10px;border-radius:50%;background:#1D9E75;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.open-text{font-size:13px;color:#0F6E56;font-weight:500}
+.open-sub{font-size:12px;color:#1D9E75;margin-top:2px}
+
+.footer{text-align:center;padding-top:2rem;border-top:0.5px solid var(--color-border-tertiary)}
+.ft-name{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:4px}
+.ft-loc{font-size:12px;color:var(--color-text-secondary);margin-bottom:8px}
+.ft-links{display:flex;justify-content:center;gap:18px}
+.ft-links a{font-size:12px;color:var(--color-text-secondary);text-decoration:none;display:flex;align-items:center;gap:4px}
+.ft-links a:hover{color:var(--color-text-primary)}
+</style>
+
+<div class="wrap">
+<h2 style="position:absolute;left:-9999px">Yamuna Moorthy – BI Analyst Portfolio</h2>
+
+<div class="hero">
+  <div class="hero-eyebrow">BI Analyst &amp; Analytics Lead · JSW Steel</div>
+  <div class="hero-name">Yamuna<br><em>Moorthy</em></div>
+  <div class="hero-pronoun">she/her · Bengaluru, Karnataka</div>
+  <p class="hero-bio">I build analytics systems that factories run on. From fault-tracking dashboards used by 200+ crane engineers, to zero-touch MIS pipelines — I turn industrial data into tools that actually get used.</p>
+
+  <div class="hero-quote">
+    <p>"I went from zero industry experience to leading plant-wide BI strategy in under a year — not by knowing everything, but by staying closer to the problem than anyone else."</p>
+    <cite>— Yamuna Moorthy, on building JSW Steel's analytics function from scratch</cite>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn primary" href="https://github.com/yammrthy"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/yammrthy"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+    <a class="btn" href="mailto:yam.mrthy@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> yam.mrthy@gmail.com</a>
+    <a class="btn" href="tel:+918489500818"><i class="ti ti-phone" aria-hidden="true"></i> +91 84895-00818</a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Dashboards deployed plant-wide</div></div>
+    <div class="stat"><div class="stat-n">15 hrs</div><div class="stat-l">Weekly manual effort automated</div></div>
+    <div class="stat"><div class="stat-n">200+</div><div class="stat-l">Industrial cranes monitored</div></div>
+    <div class="stat"><div class="stat-n">5+</div><div class="stat-l">Departments served</div></div>
+  </div>
+</div>
+
+<div class="open-banner">
+  <div class="open-dot"></div>
+  <div>
+    <div class="open-text">Open to work · Senior BI Analyst · BI Lead · Analytics Manager</div>
+    <div class="open-sub">Bengaluru · On-site or Hybrid · Open to relocation</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Live work — JSW Steel Vijayanagar</div>
+
+  <div style="margin-bottom:1rem">
+    <div class="dash-preview">
+      <div class="dash-titlebar">
+        <span class="dash-title"><i class="ti ti-chart-bar" style="font-size:14px;margin-right:6px;color:#1D9E75" aria-hidden="true"></i>Crane Maintenance KPI Dashboard</span>
+        <div class="dash-dot-row"><div class="dash-dot"></div><div class="dash-dot"></div><div class="dash-dot"></div></div>
+      </div>
+      <div class="dash-kpi-row">
+        <div class="kpi-box"><div class="kpi-val">247</div><div class="kpi-lbl">Total cranes tracked</div></div>
+        <div class="kpi-box"><div class="kpi-val">94%</div><div class="kpi-lbl">Rectification rate</div></div>
+        <div class="kpi-box"><div class="kpi-val">3.2h</div><div class="kpi-lbl">Avg downtime</div></div>
+        <div class="kpi-box"><div class="kpi-val">18</div><div class="kpi-lbl">Open faults</div></div>
+      </div>
+      <div class="dash-chart-row">
+        <div class="chart-mock">
+          <div class="bar" style="height:45%"></div><div class="bar" style="height:60%"></div><div class="bar hi" style="height:80%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:70%"></div><div class="bar hi" style="height:90%"></div><div class="bar" style="height:50%"></div><div class="bar" style="height:65%"></div><div class="bar hi" style="height:75%"></div><div class="bar" style="height:40%"></div>
+        </div>
+        <div class="donut-mock">
+          <div class="donut-ring"></div>
+          <div class="donut-leg"><span style="color:#1D9E75">■</span> Electrical<br><span style="color:#9FE1CB">■</span> Mechanical<br><span style="color:#E1F5EE">■</span> Hydraulic</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">↑ Dashboard mockup · replace with your actual screenshot</div>
+  </div>
+
+  <div class="proj-grid" style="margin-bottom:8px">
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Power BI Maintenance KPI Dashboard</span><span class="badge b-live">Live · Plant-wide</span></div>
+      <p class="proj-desc">End-to-end fault analytics for 200+ industrial cranes — fault type, frequency, downtime, and rectification status. Became the standard reporting interface across all 5 maintenance divisions.</p>
+      <div class="metric-row"><div class="m"><strong>~8 hrs/week</strong> saved per dept</div><div class="m"><strong>3×</strong> faster fault pattern detection</div></div>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Row-Level Security</span></div>
+    </div>
+  </div>
+
+  <div style="margin:1rem 0">
+    <div class="mis-mock">
+      <div class="dash-titlebar" style="margin-bottom:12px">
+        <span class="dash-title"><i class="ti ti-refresh" style="font-size:14px;margin-right:6px;color:#1D9E75" aria-hidden="true"></i>Automated MIS Pipeline</span>
+        <div class="dash-dot-row"><div class="dash-dot"></div><div class="dash-dot"></div><div class="dash-dot"></div></div>
+      </div>
+      <div class="mis-flow">
+        <div class="mis-step"><i class="ti ti-database mis-step-icon" aria-hidden="true"></i><div class="mis-step-lbl">SharePoint</div></div>
+        <div class="mis-arrow">→</div>
+        <div class="mis-step"><i class="ti ti-refresh mis-step-icon" aria-hidden="true"></i><div class="mis-step-lbl">Power Automate</div></div>
+        <div class="mis-arrow">→</div>
+        <div class="mis-step"><i class="ti ti-file mis-step-icon" aria-hidden="true"></i><div class="mis-step-lbl">Excel MIS</div></div>
+        <div class="mis-arrow">→</div>
+        <div class="mis-step"><i class="ti ti-mail mis-step-icon" aria-hidden="true"></i><div class="mis-step-lbl">30+ recipients</div></div>
+      </div>
+      <table class="mis-table">
+        <thead><tr><th>Report</th><th>Cadence</th><th>Recipients</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Daily Fault Summary</td><td>Every day 8am</td><td>12</td><td><span class="mis-badge mis-sent">Sent</span></td></tr>
+          <tr><td>Weekly KPI Report</td><td>Every Monday</td><td>8</td><td><span class="mis-badge mis-sent">Sent</span></td></tr>
+          <tr><td>Monthly MIS</td><td>1st of month</td><td>30+</td><td><span class="mis-badge mis-sched">Scheduled</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:12px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">↑ Pipeline mockup · replace with your actual Power Automate flow screenshot</div>
+  </div>
+
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Automated MIS Reporting System</span><span class="badge b-live">0 SLA misses</span></div>
+      <p class="proj-desc">Scheduled Power Automate pipeline delivering daily, weekly, and monthly MIS to 30+ stakeholders across 3 teams — fully hands-free since deployment.</p>
+      <div class="metric-row"><div class="m"><strong>~15 hrs/week</strong> eliminated</div><div class="m"><strong>30+</strong> stakeholders</div></div>
+      <div class="tags"><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Excel</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Internal Web Analytics Tool</span><span class="badge b-live">Field deployed</span></div>
+      <p class="proj-desc">Browser-based maintenance analytics for non-Excel field staff. No installation, no licensing cost. Replaced ad-hoc spreadsheet requests across 2+ departments.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Fault Data Entry &amp; Tracking System</span><span class="badge b-live">Live</span></div>
+      <p class="proj-desc">Structured fault capture (problem → root cause → resolution) enabling engineers to review history before on-site visits.</p>
+      <div class="metric-row"><div class="m"><strong>~25%</strong> fewer repeat faults</div></div>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Power Query</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Portfolio projects — GitHub</div>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Supply Chain Analytics Dashboard</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">SQL-to-Power BI pipeline with drill-through supplier performance, lead time trends, and inventory risk pages.</p>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Power Query</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">HR Attrition Analytics</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">Attrition risk on IBM HR dataset (1,470 employees) — what-if slicers and heatmaps by dept, tenure, and satisfaction score.</p>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Road Accident Analytics</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">UK Road Safety dataset — high-risk zones, peak accident hours, vehicle-type distribution with map visuals from a single SQL source.</p>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Map Visuals</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Python MIS Automation Script</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">Auto-generates formatted MIS reports from raw CSV — replaces a multi-step manual Excel workflow with a single Python script.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Financial KPI Tracker</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">Revenue, Margin, AOV, and Return Rate dashboards on AdventureWorks dataset with YoY comparison pages.</p>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Excel</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">Student Performance Analytics</span><span class="badge b-port">GitHub</span></div>
+      <p class="proj-desc">Dropout risk, attendance patterns, and grade trends from Kaggle dataset — drill-through by subject, gender, and department.</p>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Academic projects</div>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">AI-Powered Industrial Maintenance System</span><span class="badge b-acad">Final year · Team of 4</span></div>
+      <p class="proj-desc">ML-based predictive maintenance analysing real-time sensor data to detect anomalies and predict equipment failures before occurrence. Reduced simulated unplanned downtime by 30% in testing.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Sensor Simulation</span><span class="tag">Predictive Analytics</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-name">PLCC-Based Home Automation System</span><span class="badge b-acad">Best project award</span></div>
+      <p class="proj-desc">Remote control of household devices over existing power line infrastructure — no additional wiring or wireless modules. Awarded Best Project in batch at department exhibition.</p>
+      <div class="tags"><span class="tag">Power Line Communication</span><span class="tag">Embedded Systems</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Experience</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jul 2025 – Present</div>
+      <div class="tl-role">Assistant Manager – Business Analytics</div>
+      <div class="tl-company">JSW Steel Limited · Vijayanagar Works · On-site</div>
+      <div class="tl-badge">Promoted within 12 months</div>
+      <ul class="tl-bullets">
+        <li>Own the plant-wide BI roadmap across Operations, Equipment Management, Engineering, and Production Support</li>
+        <li>Primary analytics partner to department heads and senior managers across 5+ functions</li>
+        <li>10+ Power BI dashboards deployed and adopted as standard reporting interface</li>
+        <li>MIS automation eliminating ~15 hrs/week · zero SLA misses</li>
+        <li>Fault documentation system reducing repeat faults by an estimated 25%</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--color-border-secondary)"></div>
+      <div class="tl-date">Jul 2024 – Jul 2025</div>
+      <div class="tl-role">Graduate Engineer Trainee – Business Analytics</div>
+      <div class="tl-company">JSW Steel Limited · Vijayanagar Works · On-site</div>
+      <ul class="tl-bullets">
+        <li>Built the analytics function from scratch — no existing dashboards, no playbook</li>
+        <li>Self-mastered Power BI, Power Automate, DAX, and MIS automation within 4 months</li>
+        <li>All first dashboards achieved plant-wide adoption within months of delivery</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Achievements &amp; recognition</div>
+  <div class="hackathon-strip">
+    <div class="hack-row"><i class="ti ti-trophy hack-icon" aria-hidden="true"></i><div><div class="hack-text">All India Women-Only Hackathon 2023 — National Finalist</div></div></div>
+    <div class="hack-row"><i class="ti ti-award hack-icon" aria-hidden="true"></i><div><div class="hack-text">Best Project in Batch — PLCC Home Automation System, Sona College of Technology</div></div></div>
+    <div class="hack-row"><i class="ti ti-star hack-icon" aria-hidden="true"></i><div><div class="hack-text">Best Ongoing Student Award — Data Structures &amp; Algorithms, InternEZY 2023</div></div></div>
+    <div class="hack-row"><i class="ti ti-medal hack-icon" aria-hidden="true"></i><div><div class="hack-text">Ignite'22 Innovation Day — 1st Prize (Cash Award ₹1,000)</div></div></div>
+    <div class="hack-row"><i class="ti ti-certificate hack-icon" aria-hidden="true"></i><div><div class="hack-text">TCS National Qualifier Test — 68.17 Percentile</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Skills</div>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="sk-title"><span class="sk-dot"></span>BI &amp; Visualisation</div><div class="sk-list">Power BI · DAX<br>Power Query · Tableau<br>Row-Level Security</div></div>
+    <div class="skill-card"><div class="sk-title"><span class="sk-dot"></span>Automation</div><div class="sk-list">Power Automate<br>Excel Macros<br>Python scripting</div></div>
+    <div class="skill-card"><div class="sk-title"><span class="sk-dot"></span>Data &amp; Databases</div><div class="sk-list">SQL · pandas<br>openpyxl<br>SharePoint</div></div>
+    <div class="skill-card"><div class="sk-title"><span class="sk-dot"></span>Web &amp; Tools</div><div class="sk-list">HTML · CSS · JS<br>Git · GitHub<br>Azure AZ-900</div></div>
+    <div class="skill-card"><div class="sk-title"><span class="sk-dot"></span>Domain</div><div class="sk-list">Manufacturing Analytics<br>Equipment Maintenance<br>MIS Reporting · IoT</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Certifications</div>
+  <div class="cert-list">
+    <div class="cert-row"><div><div class="cert-name">Google Data Analytics Professional</div><div class="cert-org">Google / Coursera · 2025</div></div><span class="c-done">Completed</span></div>
+    <div class="cert-row"><div><div class="cert-name">Azure Fundamentals AZ-900</div><div class="cert-org">Microsoft · 2025</div></div><span class="c-done">Completed</span></div>
+    <div class="cert-row"><div><div class="cert-name">Tableau Desktop Specialist</div><div class="cert-org">Tableau / Salesforce · 2025</div></div><span class="c-done">Completed</span></div>
+    <div class="cert-row"><div><div class="cert-name">HackerRank SQL – Intermediate</div><div class="cert-org">HackerRank · 2025</div></div><span class="c-done">Completed</span></div>
+    <div class="cert-row"><div><div class="cert-name">Industry 4.0 &amp; Industrial IoT</div><div class="cert-org">NPTEL – Elite · 2024</div></div><span class="c-done">Completed</span></div>
+    <div class="cert-row"><div><div class="cert-name">PL-300 Power BI Data Analyst Associate</div><div class="cert-org">Microsoft · Target Sep 2025</div></div><span class="c-wip">In progress</span></div>
+    <div class="cert-row"><div><div class="cert-name">PL-500 Power Automate RPA Developer</div><div class="cert-org">Microsoft · Target Dec 2025</div></div><span class="c-wip">In progress</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Education</div>
+  <div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px 16px">
+    <div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">B.E., Electrical &amp; Electronics Engineering</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);margin-top:2px">Sona College of Technology, Salem, TN · Sep 2020 – Jul 2024</div>
+    <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+      <div style="background:var(--color-background-secondary);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--color-text-primary)">CGPA <strong>8.98 / 10</strong></div>
+      <div style="background:#E1F5EE;border-radius:6px;padding:6px 12px;font-size:12px;color:#0F6E56">National Hackathon Finalist</div>
+      <div style="background:#E1F5EE;border-radius:6px;padding:6px 12px;font-size:12px;color:#0F6E56">Best Project Award</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ft-name">Yamuna Moorthy</div>
+  <div class="ft-loc">BI Analyst · Assistant Manager, JSW Steel · Bengaluru, Karnataka</div>
+  <div class="ft-links">
+    <a href="mailto:yam.mrthy@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> yam.mrthy@gmail.com</a>
+    <a href="https://linkedin.com/in/yammrthy"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/yammrthy</a>
+    <a href="https://github.com/yammrthy"><i class="ti ti-brand-github" aria-hidden="true"></i> github.com/yammrthy</a>
+  </div>
+</div>
+
+</div>
