@@ -1,312 +1,1147 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yamuna Moorthy | Manufacturing Analytics Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@400;500&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;color:var(--color-text-primary);background:transparent}
-.w{max-width:720px;margin:0 auto;padding:0 1.25rem 5rem}
-.mono{font-family:'DM Mono',monospace}
+  :root {
+    --navy:    #0d1b2a;
+    --steel:   #1c3552;
+    --accent:  #e8a838;
+    --amber:   #f5c96a;
+    --smoke:   #c8d6e5;
+    --light:   #eef2f7;
+    --white:   #ffffff;
+    --mono:    'DM Mono', monospace;
+    --serif:   'DM Serif Display', serif;
+    --sans:    'Outfit', sans-serif;
+  }
 
-.hero{padding:2.5rem 0 2rem;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:2.5rem}
-.available-pill{display:inline-flex;align-items:center;gap:8px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:20px;padding:6px 14px;margin-bottom:20px}
-.pulse{width:8px;height:8px;border-radius:50%;background:#1D9E75;animation:p 2s infinite}
-@keyframes p{0%,100%{opacity:1}50%{opacity:0.3}}
-.avail-text{font-size:12px;font-weight:500;color:var(--color-text-primary);font-family:'DM Mono',monospace}
-.h1{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;line-height:1.0;letter-spacing:-1px;margin-bottom:4px;color:var(--color-text-primary)}
-.h1 span{color:#1D9E75}
-.role-line{font-family:'DM Mono',monospace;font-size:13px;color:var(--color-text-secondary);margin-bottom:16px;letter-spacing:0.04em}
-.hero-p{font-size:15px;line-height:1.7;color:var(--color-text-secondary);max-width:520px;margin-bottom:20px}
-.hero-p strong{color:var(--color-text-primary);font-weight:500}
-.cta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;padding:9px 18px;border-radius:6px;text-decoration:none;border:0.5px solid var(--color-border-secondary);color:var(--color-text-primary);background:var(--color-background-primary);cursor:pointer}
-.btn:hover{background:var(--color-background-secondary)}
-.btn.g{background:#1D9E75;border-color:#0F6E56;color:#fff}
-.btn.g:hover{background:#0F6E56}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-border-tertiary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;overflow:hidden;margin-top:20px}
-.num{background:var(--color-background-primary);padding:14px 12px}
-.nv{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#1D9E75;line-height:1}
-.nl{font-size:11px;color:var(--color-text-secondary);margin-top:4px;line-height:1.4}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.sec{margin-bottom:3rem}
-.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.sec-hd-line{flex:1;height:0.5px;background:var(--color-border-tertiary)}
-.sec-hd-txt{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-text-secondary);white-space:nowrap}
+  html { scroll-behavior: smooth; }
 
-.proof-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden;margin-bottom:12px}
-.proof-header{padding:14px 16px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.proof-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--color-text-primary)}
-.proof-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
-.lv{font-family:'DM Mono',monospace;font-size:10px;padding:4px 10px;border-radius:4px;white-space:nowrap}
-.lv-live{background:#E1F5EE;color:#085041}
-.lv-gh{background:#E6F1FB;color:#0C447C}
-.proof-body{padding:14px 16px}
-.proof-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.pm{background:var(--color-background-secondary);border-radius:6px;padding:10px}
-.pm-v{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:#1D9E75}
-.pm-l{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
-.proof-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:10px}
-.proof-win{font-size:13px;color:var(--color-text-primary);font-weight:500;padding:10px 14px;background:var(--color-background-secondary);border-radius:6px;border-left:3px solid #1D9E75;margin-bottom:10px}
-.tags{display:flex;gap:5px;flex-wrap:wrap}
-.tag{font-family:'DM Mono',monospace;font-size:10px;padding:3px 7px;border-radius:4px;background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+  body {
+    background: var(--navy);
+    color: var(--smoke);
+    font-family: var(--sans);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
 
-.img-placeholder{background:var(--color-background-secondary);border:1.5px dashed var(--color-border-secondary);border-radius:8px;height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin-bottom:10px;cursor:pointer}
-.img-placeholder i{font-size:24px;color:var(--color-text-secondary)}
-.img-placeholder span{font-family:'DM Mono',monospace;font-size:11px;color:var(--color-text-secondary)}
-.img-placeholder em{font-size:11px;color:var(--color-text-secondary);font-style:normal}
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
 
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.mini-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:12px 14px}
-.mc-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
-.mc-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.55;margin-bottom:8px}
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(200, 214, 229, 0.08);
+  }
 
-.tl{border-left:2px solid var(--color-border-secondary);padding-left:20px}
-.tl-item{margin-bottom:1.75rem;position:relative}
-.tl-dot{width:10px;height:10px;border-radius:50%;background:#1D9E75;position:absolute;left:-26px;top:3px;border:2px solid var(--color-background-primary)}
-.tl-dot.grey{background:var(--color-border-secondary)}
-.tl-d{font-family:'DM Mono',monospace;font-size:11px;color:#1D9E75;margin-bottom:3px}
-.tl-r{font-size:15px;font-weight:500;color:var(--color-text-primary)}
-.tl-c{font-size:13px;color:var(--color-text-secondary);margin-bottom:8px}
-.promo-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:4px;background:#E1F5EE;color:#085041;margin-bottom:10px}
-.tl-li{font-size:13px;color:var(--color-text-secondary);line-height:1.7;list-style:none;padding:0}
-.tl-li li{padding-left:14px;position:relative;margin-bottom:2px}
-.tl-li li:before{content:"→";position:absolute;left:0;color:#1D9E75;font-size:11px;top:2px}
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
 
-.warn-box{background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:8px;padding:12px 16px;margin-bottom:1.5rem}
-.warn-title{font-size:13px;font-weight:500;color:var(--color-text-warning);margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.warn-item{font-size:12px;color:var(--color-text-warning);line-height:1.8;padding-left:12px;position:relative}
-.warn-item:before{content:"!";position:absolute;left:0;font-weight:500}
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-.ach-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
-.ach-row:last-child{border-bottom:none}
-.ach-i{color:#1D9E75;font-size:16px;flex-shrink:0}
-.ach-t{font-size:13px;color:var(--color-text-primary);font-weight:500}
-.ach-s{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    overflow: hidden;
+  }
 
-.sk-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
-.sk{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:11px 13px}
-.sk-h{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:7px;display:flex;align-items:center;gap:5px}
-.sk-dot{width:5px;height:5px;border-radius:50%;background:#1D9E75;flex-shrink:0}
-.sk-l{font-size:12px;color:var(--color-text-secondary);line-height:1.9}
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(200,214,229,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,214,229,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
 
-.cert-wrap{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;overflow:hidden}
-.cr{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:0.5px solid var(--color-border-tertiary)}
-.cr:last-child{border-bottom:none}
-.cr-n{font-size:13px;font-weight:500;color:var(--color-text-primary)}
-.cr-o{font-size:11px;color:var(--color-text-secondary)}
-.c-done{background:#EAF3DE;color:#27500A;font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px}
-.c-wip{background:#FAEEDA;color:#633806;font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px}
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,168,56,0.12) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    pointer-events: none;
+  }
 
-.ft{text-align:center;padding:2rem 0 0;border-top:0.5px solid var(--color-border-tertiary)}
-.ft-n{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--color-text-primary);margin-bottom:4px}
-.ft-l{font-size:12px;color:var(--color-text-secondary);margin-bottom:12px}
-.ft-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-.ft-links a{font-size:12px;color:var(--color-text-secondary);text-decoration:none;display:flex;align-items:center;gap:4px}
-.ft-links a:hover{color:var(--color-text-primary)}
+  .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--smoke);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+    margin-bottom: 3rem;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    opacity: 0.6;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,168,56,0.35);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(200,214,229,0.3);
+    color: var(--smoke);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.5s;
+  }
+
+  .scroll-indicator span {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    opacity: 0.4;
+  }
+
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; position: relative; }
+
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 3rem;
+    line-height: 1.15;
+  }
+
+  .section-divider {
+    width: 48px; height: 2px;
+    background: var(--accent);
+    margin: 1rem 0 3rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--steel);
+    border-top: 1px solid rgba(200,214,229,0.06);
+    border-bottom: 1px solid rgba(200,214,229,0.06);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1100px;
+  }
+
+  .about-text p {
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: var(--smoke);
+    opacity: 0.85;
+  }
+
+  .about-highlights {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .highlight-card {
+    border: 1px solid rgba(200,214,229,0.1);
+    padding: 1.4rem 1.6rem;
+    position: relative;
+    transition: border-color 0.3s;
+    background: rgba(13,27,42,0.4);
+  }
+
+  .highlight-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+  }
+
+  .highlight-card:hover { border-color: rgba(232,168,56,0.3); }
+
+  .highlight-card strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .highlight-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.6; margin: 0; }
+
+  /* ── EXPERIENCE ── */
+  #experience { max-width: 1100px; margin: 0 auto; }
+
+  .exp-timeline { position: relative; padding-left: 2rem; }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0.5rem; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .exp-item {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute; left: -2.38rem; top: 0.45rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(232,168,56,0.5);
+  }
+
+  .exp-meta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .exp-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .exp-company {
+    font-size: 0.9rem;
+    color: var(--smoke);
+    opacity: 0.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .exp-summary {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--smoke);
+    opacity: 0.75;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+    border-left: 2px solid rgba(232,168,56,0.3);
+    padding-left: 1rem;
+  }
+
+  .exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .exp-achievements li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--smoke);
+    opacity: 0.8;
+  }
+
+  .exp-achievements li::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+    font-family: var(--mono);
+  }
+
+  /* ── SKILLS ── */
+  #skills {
+    background: var(--steel);
+    border-top: 1px solid rgba(200,214,229,0.06);
+    border-bottom: 1px solid rgba(200,214,229,0.06);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+  }
+
+  .skill-card {
+    border: 1px solid rgba(200,214,229,0.08);
+    padding: 2rem;
+    background: rgba(13,27,42,0.5);
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative; overflow: hidden;
+  }
+
+  .skill-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .skill-card:hover { transform: translateY(-4px); border-color: rgba(232,168,56,0.2); }
+  .skill-card:hover::after { transform: scaleX(1); }
+
+  .skill-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-cat {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+
+  .skill-list li {
+    font-size: 0.88rem;
+    color: var(--smoke);
+    opacity: 0.75;
+    line-height: 1.5;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { max-width: 1100px; margin: 0 auto; }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid rgba(200,214,229,0.08);
+    padding: 2.5rem;
+    background: rgba(28,53,82,0.3);
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+  }
+
+  .project-card:hover { transform: translateY(-4px); border-color: rgba(232,168,56,0.25); }
+
+  .project-num {
+    font-family: var(--mono);
+    font-size: 3rem;
+    color: rgba(232,168,56,0.15);
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--smoke);
+    opacity: 0.7;
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements {
+    background: var(--steel);
+    border-top: 1px solid rgba(200,214,229,0.06);
+  }
+
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    max-width: 1100px;
+  }
+
+  .award-card {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(200,214,229,0.07);
+    background: rgba(13,27,42,0.4);
+    transition: border-color 0.3s;
+  }
+
+  .award-card:hover { border-color: rgba(232,168,56,0.25); }
+
+  .award-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .award-text strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .award-text span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  #education { max-width: 1100px; margin: 0 auto; }
+
+  .edu-cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .edu-block {
+    border: 1px solid rgba(200,214,229,0.1);
+    padding: 2.5rem;
+    background: rgba(28,53,82,0.2);
+    position: relative;
+  }
+
+  .edu-block::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .edu-school {
+    font-size: 0.9rem;
+    color: var(--smoke);
+    opacity: 0.65;
+    margin-bottom: 1rem;
+  }
+
+  .edu-cgpa {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+
+  .cert-item {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(200,214,229,0.06);
+  }
+
+  .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .cert-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+  }
+
+  .cert-item strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  .cert-item span {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    border-top: 1px solid rgba(200,214,229,0.06);
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+
+  .contact-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    opacity: 0.65;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .contact-links {
+    display: flex; flex-direction: column; gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--smoke);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.8rem;
+    transition: color 0.2s;
+    opacity: 0.75;
+  }
+
+  .contact-link:hover { color: var(--accent); opacity: 1; }
+
+  .contact-link .cl-icon { font-size: 1.1rem; }
+
+  footer {
+    border-top: 1px solid rgba(200,214,229,0.06);
+    padding: 1.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    opacity: 0.35;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.15); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+    .hero-stats { gap: 1.8rem; flex-wrap: wrap; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .edu-cert-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-ctas { flex-direction: column; }
+    .contact-links { align-items: flex-start; }
+  }
 </style>
+</head>
+<body>
 
-<div class="w">
-<h2 style="position:absolute;left:-9999px">Yamuna Moorthy — Job-winning BI Portfolio</h2>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">YM · Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<div class="hero">
-  <div class="available-pill"><div class="pulse"></div><span class="avail-text">Open to Senior BI / Analytics Lead roles</span></div>
-  <div class="h1">Yamuna<br><span>Moorthy</span></div>
-  <div class="role-line">BI ANALYST · ASSISTANT MANAGER · JSW STEEL · SHE/HER</div>
-  <p class="hero-p">I joined JSW Steel with <strong>zero industry experience</strong> and built the entire analytics function from scratch. In 11 months I was promoted. My dashboards are now how 200+ engineers do their jobs. That's not a line on a resume — that's the whole story.</p>
-  <div class="cta-bar">
-    <a class="btn g" href="https://github.com/yammrthy"><i class="ti ti-brand-github" aria-hidden="true"></i> View GitHub</a>
-    <a class="btn" href="https://linkedin.com/in/yammrthy"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
-    <a class="btn" href="mailto:yam.mrthy@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> yam.mrthy@gmail.com</a>
-  </div>
-  <div class="nums">
-    <div class="num"><div class="nv">10+</div><div class="nl">Dashboards live plant-wide</div></div>
-    <div class="num"><div class="nv">15h</div><div class="nl">Weekly manual work eliminated</div></div>
-    <div class="num"><div class="nv">200+</div><div class="nl">Cranes monitored daily</div></div>
-    <div class="num"><div class="nv">0</div><div class="nl">SLA misses since launch</div></div>
-  </div>
-</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-tag">// Manufacturing Analytics Engineer</p>
+    <h1>Yamuna<br><em>Moorthy</em></h1>
+    <p class="hero-sub">
+      I build analytics systems that factories run on — turning raw industrial data into dashboards, workflows, and tools that engineers depend on every day.
+    </p>
 
-<div class="warn-box">
-  <div class="warn-title"><i class="ti ti-alert-triangle" aria-hidden="true" style="font-size:15px"></i> Action items — do these before sharing this portfolio</div>
-  <div class="warn-item">Add a LinkedIn profile photo — you are invisible to 2.3× of recruiters without one</div>
-  <div class="warn-item">Publish one Power BI report publicly — every other BI candidate has a live link, you don't</div>
-  <div class="warn-item">Write READMEs with screenshots on your top 3 GitHub repos — empty repos kill credibility</div>
-  <div class="warn-item">Grow to 500+ LinkedIn connections — algorithm deprioritises profiles below this</div>
-</div>
-
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Live work — JSW Steel (your actual proof)</div><div class="sec-hd-line"></div></div>
-
-  <div class="proof-card">
-    <div class="proof-header">
-      <div><div class="proof-title">Crane Maintenance KPI Dashboard</div><div class="proof-sub">Power BI · Plant-wide · All 5 maintenance divisions</div></div>
-      <span class="lv lv-live">Live</span>
-    </div>
-    <div class="proof-body">
-      <div class="img-placeholder">
-        <i class="ti ti-photo" aria-hidden="true"></i>
-        <span>Add your actual dashboard screenshot here</span>
-        <em>Anonymise dept names if needed — visual proof is non-negotiable</em>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">200+</span>
+        <span class="stat-label">EOT/HOT Cranes<br>monitored</span>
       </div>
-      <div class="proof-metrics">
-        <div class="pm"><div class="pm-v">200+</div><div class="pm-l">Cranes tracked</div></div>
-        <div class="pm"><div class="pm-v">3×</div><div class="pm-l">Faster fault detection</div></div>
-        <div class="pm"><div class="pm-v">8h</div><div class="pm-l">Saved per dept/week</div></div>
+      <div>
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Power BI<br>Dashboards</span>
       </div>
-      <div class="proof-win">The business win: maintenance managers stopped printing Excel reports. This dashboard is now how they start every shift.</div>
-      <p class="proof-desc">Tracks fault type, frequency, downtime, and rectification status for every crane in the plant. Built with drill-through by department, equipment class, and fault category. Deployed with Row-Level Security so each division sees only their data.</p>
-      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Row-Level Security</span><span class="tag">Manufacturing Analytics</span></div>
-    </div>
-  </div>
-
-  <div class="proof-card">
-    <div class="proof-header">
-      <div><div class="proof-title">Automated MIS Reporting Pipeline</div><div class="proof-sub">Power Automate + SharePoint · 30+ stakeholders · Zero manual effort</div></div>
-      <span class="lv lv-live">0 SLA misses</span>
-    </div>
-    <div class="proof-body">
-      <div class="img-placeholder">
-        <i class="ti ti-photo" aria-hidden="true"></i>
-        <span>Add your Power Automate flow screenshot here</span>
-        <em>Even a flow diagram screenshot is enough</em>
+      <div>
+        <span class="stat-num">15h</span>
+        <span class="stat-label">Weekly effort<br>automated</span>
       </div>
-      <div class="proof-metrics">
-        <div class="pm"><div class="pm-v">15h</div><div class="pm-l">Eliminated per week</div></div>
-        <div class="pm"><div class="pm-v">30+</div><div class="pm-l">Stakeholders served</div></div>
-        <div class="pm"><div class="pm-v">3</div><div class="pm-l">Teams freed up</div></div>
+      <div>
+        <span class="stat-num">9.3%</span>
+        <span class="stat-label">Increment in<br>Year 1</span>
       </div>
-      <div class="proof-win">The business win: three teams stopped spending Monday mornings on copy-paste reporting. That time went back to actual work.</div>
-      <p class="proof-desc">Scheduled pipeline delivering daily, weekly, monthly, and consolidated MIS reports automatically via SharePoint triggers. Built with error-handling and failover so it runs without supervision.</p>
-      <div class="tags"><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Excel</span><span class="tag">MIS Automation</span></div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="mailto:yam.mrthy@gmail.com" class="btn-primary">Get in Touch</a>
+      <a href="https://linkedin.com/in/yammrthy" target="_blank" class="btn-outline">LinkedIn ↗</a>
+      <a href="https://github.com/yammrthy" target="_blank" class="btn-outline">GitHub ↗</a>
     </div>
   </div>
 
-  <div class="mini-grid">
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px"><div class="mc-title">Internal Web Analytics Tool</div><span class="lv lv-live" style="font-size:9px;padding:2px 6px">Live</span></div>
-      <p class="mc-desc">Browser-based analytics for field staff with no Excel access. No installation, no license cost. Replaced spreadsheet requests across 2+ depts.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="section-tag">// About</p>
+      <h2 class="section-title">From field engineer<br>to <em style="font-family:var(--serif); font-style:italic; color:var(--accent)">analytics lead</em></h2>
+      <div class="section-divider"></div>
+      <p>I joined JSW Steel Vijayanagar Works as a fresher in 2024. Within 4 months, I had identified a critical data gap across the crane maintenance division, independently built a reporting system from scratch, and demonstrated enough impact for it to be adopted plant-wide.</p>
+      <p>I am an Electrical & Electronics engineer by training with a CGPA of 8.98. My work sits at the intersection of industrial operations and data systems — I understand both the machines and the data behind them.</p>
+      <p>Currently pursuing Microsoft PL-300 (Power BI Associate) and PL-500 (Power Automate RPA Developer). Open to roles in Manufacturing Engineering, BI Analytics, and Industry 4.0 implementations.</p>
     </div>
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px"><div class="mc-title">Fault Data Tracking System</div><span class="lv lv-live" style="font-size:9px;padding:2px 6px">Live</span></div>
-      <p class="mc-desc">Structured problem → root cause → resolution capture. Engineers review fault history before site visits. ~25% fewer repeat faults.</p>
-      <div class="tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Power Query</span></div>
+
+    <div class="about-highlights reveal">
+      <div class="highlight-card">
+        <strong>📍 Location</strong>
+        <p>Toranagallu, Karnataka (open to relocation — Bengaluru, Pan-India)</p>
+      </div>
+      <div class="highlight-card">
+        <strong>🎓 Education</strong>
+        <p>B.E. Electrical & Electronics Engineering — Sona College of Technology, Salem | CGPA 8.98</p>
+      </div>
+      <div class="highlight-card">
+        <strong>🏭 Industry</strong>
+        <p>Steel & Heavy Manufacturing, EOT/HOT Crane Maintenance, Plant-level KPI Analytics</p>
+      </div>
+      <div class="highlight-card">
+        <strong>🎯 Seeking</strong>
+        <p>Manufacturing Engineer / BI Analyst / Industry 4.0 roles where I can scale impact beyond a single plant</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Portfolio projects — public on GitHub</div><div class="sec-hd-line"></div></div>
-  <div style="background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:var(--color-text-warning);font-family:'DM Mono',monospace">These only count if your GitHub repos have READMEs + screenshots. Without that, a recruiter sees nothing.</div>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px"><div class="mc-title">Supply Chain Analytics</div><span class="lv lv-gh" style="font-size:9px;padding:2px 6px">GitHub</span></div>
-      <p class="mc-desc">SQL → Power BI end-to-end. Drill-through supplier performance, lead time trends, inventory risk.</p>
-      <div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Power Query</span></div>
-    </div>
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px"><div class="mc-title">HR Attrition Analytics</div><span class="lv lv-gh" style="font-size:9px;padding:2px 6px">GitHub</span></div>
-      <p class="mc-desc">IBM dataset (1,470 employees). What-if slicers, heatmaps, attrition by dept + tenure.</p>
-      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
-    </div>
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px"><div class="mc-title">Road Accident Analytics</div><span class="lv lv-gh" style="font-size:9px;padding:2px 6px">GitHub</span></div>
-      <p class="mc-desc">UK Open Data. SQL queries → Power BI map visuals, peak hour analysis, vehicle distribution.</p>
-      <div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Map Visuals</span></div>
-    </div>
-    <div class="mini-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px"><div class="mc-title">Python MIS Automation</div><span class="lv lv-gh" style="font-size:9px;padding:2px 6px">GitHub</span></div>
-      <p class="mc-desc">Auto-generates formatted MIS from raw CSV. Proves code-level automation — not just Power Automate.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span></div>
-    </div>
-  </div>
-</div>
+<!-- EXPERIENCE -->
+<section id="experience" style="max-width:1100px; margin:0 auto;">
+  <p class="section-tag reveal">// Experience</p>
+  <h2 class="section-title reveal">Where I've<br>delivered impact</h2>
+  <div class="section-divider reveal"></div>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Experience</div><div class="sec-hd-line"></div></div>
-  <div class="tl">
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-d">Jul 2025 – Present · 11 months</div>
-      <div class="tl-r">Assistant Manager – Business Analytics</div>
-      <div class="tl-c">JSW Steel Limited · Vijayanagar Works · On-site</div>
-      <div class="promo-badge">Promoted within 12 months of joining as fresher</div>
-      <ul class="tl-li">
-        <li>Own plant-wide BI roadmap across 5+ departments — sole analytics function for one of India's largest steel plants</li>
-        <li>Primary analytics partner to department heads and senior managers</li>
-        <li>10+ dashboards deployed, all achieving plant-wide adoption</li>
-        <li>MIS automation saving ~15 hrs/week · 0 SLA misses</li>
-        <li>Fault documentation cutting repeat faults by ~25%</li>
+  <div class="exp-timeline">
+    <div class="exp-item reveal">
+      <p class="exp-meta">July 2025 – Present</p>
+      <h3 class="exp-title">Assistant Manager – Business Analytics</h3>
+      <p class="exp-company">JSW Steel Limited · Vijayanagar Works, Karnataka</p>
+      <p class="exp-summary">Own the end-to-end BI and analytics function across 5+ departments. Define and execute the plant-wide BI roadmap. Serve as the primary analytics partner for department heads and senior managers.</p>
+      <ul class="exp-achievements">
+        <li>Architected and deployed 10+ Power BI dashboards now used as the standard reporting interface across all maintenance divisions</li>
+        <li>Built a fault analytics system monitoring KPI trends for 200+ industrial cranes — reducing recurring fault identification time by 3×</li>
+        <li>Designed automated MIS pipeline (Power Automate + SharePoint) eliminating ~15 hrs/week of manual effort with zero SLA misses</li>
+        <li>Standardized fault documentation (problem → root cause → resolution), cutting diagnostic time and repeat faults by an estimated 25%</li>
+        <li>Developed a browser-based maintenance analytics tool in HTML/CSS/JS for non-Excel field staff at zero licensing cost</li>
       </ul>
     </div>
-    <div class="tl-item">
-      <div class="tl-dot grey"></div>
-      <div class="tl-d">Jul 2024 – Jul 2025 · 1 year</div>
-      <div class="tl-r">Graduate Engineer Trainee – Business Analytics</div>
-      <div class="tl-c">JSW Steel Limited · Vijayanagar Works · On-site</div>
-      <ul class="tl-li">
-        <li>Joined as fresher. Built the analytics function from zero — no dashboards, no playbook, no mentor</li>
-        <li>Self-mastered Power BI, Power Automate, DAX, MIS automation in 4 months</li>
-        <li>Every dashboard built in this period went on to plant-wide adoption</li>
+
+    <div class="exp-item reveal">
+      <p class="exp-meta">July 2024 – July 2025</p>
+      <h3 class="exp-title">Graduate Engineer Trainee – Business Analytics</h3>
+      <p class="exp-company">JSW Steel Limited · Vijayanagar Works, Karnataka</p>
+      <p class="exp-summary">Joined as a fresher and built the plant's BI analytics function from scratch — no existing dashboards, no playbook, no prior industry experience.</p>
+      <ul class="exp-achievements">
+        <li>Independently identified reporting gaps across 5+ departments and delivered the first BI dashboards — all achieving plant-wide adoption within months</li>
+        <li>Self-mastered Power BI, Power Automate, DAX, and MIS automation within 4 months</li>
+        <li>Transitioned from field crane maintenance engineer to Business Analytics role within the first 4 months based on self-initiated impact</li>
+        <li>Promoted to Assistant Manager within 12 months — received Outstanding Performance Rating with a 9.3% salary increment</li>
       </ul>
     </div>
   </div>
-</div>
+</section>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Recognition</div><div class="sec-hd-line"></div></div>
-  <div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:4px 14px">
-    <div class="ach-row"><i class="ti ti-trophy ach-i" aria-hidden="true"></i><div><div class="ach-t">All India Women-Only Hackathon 2023 — National Finalist</div><div class="ach-s">Competed nationally as an undergraduate</div></div></div>
-    <div class="ach-row"><i class="ti ti-award ach-i" aria-hidden="true"></i><div><div class="ach-t">Best Project in Batch — PLCC Home Automation</div><div class="ach-s">Sona College of Technology department exhibition</div></div></div>
-    <div class="ach-row"><i class="ti ti-star ach-i" aria-hidden="true"></i><div><div class="ach-t">Best Ongoing Student — Data Structures &amp; Algorithms</div><div class="ach-s">InternEZY, 2023</div></div></div>
-    <div class="ach-row"><i class="ti ti-medal ach-i" aria-hidden="true"></i><div><div class="ach-t">Ignite'22 Innovation Day — 1st Prize · ₹1,000 Cash Award</div><div class="ach-s">Sona College of Technology</div></div></div>
-  </div>
-</div>
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-tag reveal">// Skills</p>
+  <h2 class="section-title reveal">Technical<br>toolkit</h2>
+  <div class="section-divider reveal"></div>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Skills</div><div class="sec-hd-line"></div></div>
-  <div class="sk-wrap">
-    <div class="sk"><div class="sk-h"><span class="sk-dot"></span>BI & Viz</div><div class="sk-l">Power BI<br>DAX · Power Query<br>Tableau · RLS</div></div>
-    <div class="sk"><div class="sk-h"><span class="sk-dot"></span>Automation</div><div class="sk-l">Power Automate<br>Python scripting<br>Excel Macros</div></div>
-    <div class="sk"><div class="sk-h"><span class="sk-dot"></span>Data</div><div class="sk-l">SQL · pandas<br>openpyxl<br>SharePoint</div></div>
-    <div class="sk"><div class="sk-h"><span class="sk-dot"></span>Web</div><div class="sk-l">HTML · CSS<br>JavaScript<br>Git · GitHub</div></div>
-    <div class="sk"><div class="sk-h"><span class="sk-dot"></span>Domain</div><div class="sk-l">Manufacturing<br>Equipment Analytics<br>MIS · IoT · Azure</div></div>
-  </div>
-</div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <p class="skill-cat">Analytics & BI</p>
+      <ul class="skill-list">
+        <li>Microsoft Power BI — DAX, Data Modelling, Dashboard Design</li>
+        <li>Advanced Excel — Pivot Tables, VLOOKUP, Macros, Dynamic Charts</li>
+        <li>KPI Design & MIS Reporting (Daily / Weekly / Monthly)</li>
+      </ul>
+    </div>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Certifications</div><div class="sec-hd-line"></div></div>
-  <div class="cert-wrap">
-    <div class="cr"><div><div class="cr-n">Google Data Analytics Professional</div><div class="cr-o">Google / Coursera · 2025</div></div><span class="c-done">Done</span></div>
-    <div class="cr"><div><div class="cr-n">Azure Fundamentals AZ-900</div><div class="cr-o">Microsoft · 2025</div></div><span class="c-done">Done</span></div>
-    <div class="cr"><div><div class="cr-n">Tableau Desktop Specialist</div><div class="cr-o">Tableau / Salesforce · 2025</div></div><span class="c-done">Done</span></div>
-    <div class="cr"><div><div class="cr-n">HackerRank SQL – Intermediate</div><div class="cr-o">HackerRank · 2025</div></div><span class="c-done">Done</span></div>
-    <div class="cr"><div><div class="cr-n">Industry 4.0 &amp; Industrial IoT — Elite</div><div class="cr-o">NPTEL · 2024</div></div><span class="c-done">Done</span></div>
-    <div class="cr"><div><div class="cr-n">PL-300 Power BI Data Analyst Associate</div><div class="cr-o">Microsoft · Target Sep 2025</div></div><span class="c-wip">In progress</span></div>
-    <div class="cr"><div><div class="cr-n">PL-500 Power Automate RPA Developer</div><div class="cr-o">Microsoft · Target Dec 2025</div></div><span class="c-wip">In progress</span></div>
-  </div>
-</div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">⚙️</div>
+      <p class="skill-cat">Automation</p>
+      <ul class="skill-list">
+        <li>Microsoft Power Automate — Scheduled Flows, Multi-step Workflows</li>
+        <li>SharePoint Integration</li>
+        <li>Automated MIS Distribution (30+ stakeholders, zero SLA misses)</li>
+      </ul>
+    </div>
 
-<div class="sec">
-  <div class="sec-hd"><div class="sec-hd-txt">Education</div><div class="sec-hd-line"></div></div>
-  <div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px 16px">
-    <div style="font-size:15px;font-weight:500;color:var(--color-text-primary)">B.E. Electrical &amp; Electronics Engineering</div>
-    <div style="font-size:13px;color:var(--color-text-secondary);margin-top:2px;margin-bottom:10px">Sona College of Technology, Salem · 2020–2024</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <div style="background:var(--color-background-secondary);border-radius:5px;padding:5px 11px;font-size:12px;color:var(--color-text-primary)">CGPA <strong>8.98/10</strong></div>
-      <div style="background:#E1F5EE;border-radius:5px;padding:5px 11px;font-size:12px;color:#085041">National Hackathon Finalist</div>
-      <div style="background:#E1F5EE;border-radius:5px;padding:5px 11px;font-size:12px;color:#085041">Best Project Award</div>
-      <div style="background:#E1F5EE;border-radius:5px;padding:5px 11px;font-size:12px;color:#085041">Final Year: AI Predictive Maintenance</div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🏭</div>
+      <p class="skill-cat">Manufacturing Domain</p>
+      <ul class="skill-list">
+        <li>EOT/HOT Industrial Crane Operations & Maintenance</li>
+        <li>Process Improvement & Root Cause Analysis</li>
+        <li>Plant-level KPI Tracking, Equipment Reliability</li>
+        <li>Industry 4.0 / IIoT Concepts</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">💻</div>
+      <p class="skill-cat">Digital & Web Tools</p>
+      <ul class="skill-list">
+        <li>HTML, CSS, JavaScript (internal tool development)</li>
+        <li>Python & SQL (Basics)</li>
+        <li>AI Tools — ChatGPT, Microsoft Copilot</li>
+        <li>PowerPoint, MS Word, MS Teams</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤝</div>
+      <p class="skill-cat">Soft Skills</p>
+      <ul class="skill-list">
+        <li>Stakeholder Reporting to Senior Leadership</li>
+        <li>Cross-functional Collaboration (5+ departments)</li>
+        <li>Self-driven Learning & Problem Solving</li>
+        <li>Business Requirements Analysis</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">🎯</div>
+      <p class="skill-cat">Pursuing</p>
+      <ul class="skill-list">
+        <li>Microsoft PL-300 — Power BI Data Analyst Associate</li>
+        <li>Microsoft PL-500 — Power Automate RPA Developer</li>
+        <li>Lean / Six Sigma fundamentals</li>
+        <li>Advanced SQL & Python for manufacturing analytics</li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
-<div class="ft">
-  <div class="ft-n">Yamuna Moorthy</div>
-  <div class="ft-l">BI Analyst · Assistant Manager · JSW Steel · Bengaluru · Open to Senior BI / Lead roles</div>
-  <div class="ft-links">
-    <a href="mailto:yam.mrthy@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> yam.mrthy@gmail.com</a>
-    <a href="tel:+918489500818"><i class="ti ti-phone" aria-hidden="true"></i> +91 84895-00818</a>
-    <a href="https://linkedin.com/in/yammrthy"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
-    <a href="https://github.com/yammrthy"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</a>
+<!-- PROJECTS -->
+<section id="projects" style="max-width:1100px; margin:0 auto;">
+  <p class="section-tag reveal">// Projects</p>
+  <h2 class="section-title reveal">Work that<br>made an impact</h2>
+  <div class="section-divider reveal"></div>
+
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <p class="project-tag">Power BI · Power Automate · SharePoint</p>
+      <h3 class="project-title">Plant-Wide Crane Analytics & MIS Automation System</h3>
+      <p class="project-desc">Built from zero at JSW Steel Vijayanagar Works. 10+ dashboards tracking fault type, frequency, equipment downtime and rectification KPIs for 200+ cranes. Automated daily/weekly/monthly MIS delivery to 30+ stakeholders — eliminating ~15 hrs/week of manual effort. Adopted as the plant-wide reporting standard.</p>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <p class="project-tag">HTML · CSS · JavaScript</p>
+      <h3 class="project-title">Browser-Based Field Maintenance Analytics Tool</h3>
+      <p class="project-desc">Designed and built an internal web tool to surface maintenance analytics for field engineers with no Excel access. Deployed across the plant at zero additional licensing cost. Broadened data visibility across the workforce — a self-initiated digital manufacturing initiative.</p>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <p class="project-tag">Fault Logging · RCA · Process Design</p>
+      <h3 class="project-title">Structured Fault Data Capture & RCA System</h3>
+      <p class="project-desc">Designed a repeatable fault documentation workflow (problem description → root cause → corrective action) for 200+ cranes. Standardized across all maintenance divisions. Estimated 25% reduction in diagnostic time. Created the plant's first quality data repository for equipment failures.</p>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">04</div>
+      <p class="project-tag">ML · Sensor Data · Predictive Maintenance</p>
+      <h3 class="project-title">AI-Powered Industrial Maintenance System (Academic)</h3>
+      <p class="project-desc">Final-year team project — developed a machine learning-based predictive maintenance solution analyzing real-time sensor data to detect anomalies and predict equipment failures before occurrence. Reduced simulated unplanned downtime and improved overall equipment reliability.</p>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">05</div>
+      <p class="project-tag">Embedded Systems · PLCC · Electrical</p>
+      <h3 class="project-title">PLCC-Based Home Automation System (Academic)</h3>
+      <p class="project-desc">Designed a Power Line Carrier Communication system enabling remote control of electrical devices using existing power infrastructure — eliminating the need for additional wiring or wireless modules. Demonstrated applied electrical engineering and embedded systems problem-solving.</p>
+    </div>
   </div>
-</div>
-</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-tag reveal">// Recognition</p>
+  <h2 class="section-title reveal">Awards &<br>achievements</h2>
+  <div class="section-divider reveal"></div>
+
+  <div class="awards-grid">
+    <div class="award-card reveal">
+      <div class="award-icon">🏆</div>
+      <div class="award-text">
+        <strong>Outstanding Performance Rating + 9.3% Salary Increment</strong>
+        <span>JSW Steel Vijayanagar Works · 2025</span>
+      </div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">🥇</div>
+      <div class="award-text">
+        <strong>All India Women-Only Hackathon 2023 – National Finalist</strong>
+        <span>National Level · 2023</span>
+      </div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">💡</div>
+      <div class="award-text">
+        <strong>1st Prize – Ignite'22 Innovation Day</strong>
+        <span>Sona College of Technology · Cash Award ₹1,000</span>
+      </div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">🎓</div>
+      <div class="award-text">
+        <strong>Best Ongoing Student Award</strong>
+        <span>InternEZY Internship Program · 2022</span>
+      </div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">📋</div>
+      <div class="award-text">
+        <strong>TCS National Qualifier Test (NQT) – 68.17 Percentile</strong>
+        <span>TCS · 2023</span>
+      </div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">🏅</div>
+      <div class="award-text">
+        <strong>NPTEL – Industry 4.0 & IIoT · Elite Score 69%</strong>
+        <span>NPTEL · IIT Certification</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="max-width:1100px; margin:0 auto;">
+  <p class="section-tag reveal">// Education & Certs</p>
+  <h2 class="section-title reveal">Credentials</h2>
+  <div class="section-divider reveal"></div>
+
+  <div class="edu-cert-grid">
+    <div class="edu-block reveal">
+      <h3 class="edu-degree">Bachelor of Engineering<br>Electrical & Electronics Engineering</h3>
+      <p class="edu-school">Sona College of Technology, Salem, Tamil Nadu · 2020–2024</p>
+      <p class="edu-cgpa">CGPA: 8.98 / 10.0</p>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--serif); font-size:1.3rem; color:var(--white); margin-bottom:1.5rem;">Certifications</h3>
+      <ul class="cert-list">
+        <li class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <strong>NPTEL – Introduction to Industry 4.0 & IIoT</strong>
+            <span>Score: 69% · Elite Grade</span>
+          </div>
+        </li>
+        <li class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <strong>Microsoft Power BI Data Analyst Associate (PL-300)</strong>
+            <span>In Progress</span>
+          </div>
+        </li>
+        <li class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <strong>Microsoft Power Automate RPA Developer (PL-500)</strong>
+            <span>In Progress</span>
+          </div>
+        </li>
+        <li class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <strong>InternEZY – Data Structures and Algorithms</strong>
+            <span>Nov–Dec 2022 · Best Ongoing Student Award</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-tag" style="text-align:center;">// Let's connect</p>
+    <h2 class="contact-headline reveal">Open to the<br>right opportunity</h2>
+    <p class="contact-sub reveal">Manufacturing Engineering · BI Analytics · Industry 4.0<br>Pan-India · Open to relocation</p>
+
+    <div class="contact-links reveal">
+      <a href="mailto:yam.mrthy@gmail.com" class="contact-link">
+        <span class="cl-icon">✉</span>
+        yam.mrthy@gmail.com
+      </a>
+      <a href="tel:+918489500818" class="contact-link">
+        <span class="cl-icon">📱</span>
+        +91 84895-00818
+      </a>
+      <a href="https://linkedin.com/in/yammrthy" target="_blank" class="contact-link">
+        <span class="cl-icon">💼</span>
+        linkedin.com/in/yammrthy
+      </a>
+      <a href="https://github.com/yammrthy" target="_blank" class="contact-link">
+        <span class="cl-icon">💻</span>
+        github.com/yammrthy
+      </a>
+    </div>
+
+    <a href="mailto:yam.mrthy@gmail.com" class="btn-primary reveal">Send me a message →</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Yamuna Moorthy · Manufacturing Analytics Engineer</p>
+  <p>Built with precision · Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+      a.style.opacity = a.getAttribute('href') === `#${current}` ? '1' : '';
+    });
+  });
+</script>
+</body>
+</html>
