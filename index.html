@@ -1,624 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yamuna Moorthy | Digitalization & Automation Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yamuna Moorthy – E&I Engineer | Industrial Digitalization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --ink:     #080d16;
-  --steel:   #0e1724;
-  --plate:   #141f30;
-  --deep:    #1a2840;
-  --gold:    #c9943a;
-  --gold2:   #e8b86d;
-  --gold3:   #f5d08a;
-  --silver:  #8fa3bb;
-  --mist:    #c5d4e3;
-  --white:   #eef3f8;
-  --mono:    'IBM Plex Mono', monospace;
-  --serif:   'Libre Baskerville', serif;
-  --sans:    'Mulish', sans-serif;
-  --display: 'Bebas Neue', sans-serif;
+  --navy:   rgb(27,57,107);
+  --blue:   rgb(70,110,222);
+  --black:  #000;
+  --white:  #fff;
+  --navy-dark: rgb(14,30,58);
+  --blue-dim:  rgba(70,110,222,0.18);
+  --blue-glow: rgba(70,110,222,0.45);
+  --grid-line: rgba(70,110,222,0.10);
 }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body{
-  background:var(--ink);
-  color:var(--mist);
-  font-family:var(--sans);
-  font-weight:300;
-  overflow-x:hidden;
-  line-height:1.6;
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy-dark);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
 }
 
-/* GRID TEXTURE */
-body::before{
-  content:'';
-  position:fixed;inset:0;
+/* ── BLUEPRINT GRID BG ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
   background-image:
-    linear-gradient(rgba(201,148,58,0.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(201,148,58,0.025) 1px,transparent 1px);
-  background-size:80px 80px;
-  pointer-events:none;
-  z-index:0;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* ── NAV ─────────────────────────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;
-  z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 4rem;
-  background:rgba(8,13,22,0.95);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(201,148,58,0.12);
-}
-.nav-logo{
-  font-family:var(--display);
-  font-size:1.05rem;
-  letter-spacing:0.18em;
-  color:var(--gold);
-}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{
-  font-family:var(--mono);
-  font-size:0.68rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--silver);
-  text-decoration:none;
-  transition:color 0.2s;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--gold)}
-
-/* ── HERO ────────────────────────────────────────────────────── */
-#hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:9rem 4rem 5rem;
-  position:relative;overflow:hidden;
-}
-.hero-glow{
-  position:absolute;
-  width:1100px;height:1100px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(201,148,58,0.07) 0%,transparent 65%);
-  right:-400px;top:-300px;
-  pointer-events:none;
-}
-.hero-glow2{
-  position:absolute;
-  width:600px;height:600px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(201,148,58,0.04) 0%,transparent 65%);
-  left:-200px;bottom:-100px;
-  pointer-events:none;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:0.6rem;
-  font-family:var(--mono);
-  font-size:0.68rem;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  color:var(--gold);
-  border:1px solid rgba(201,148,58,0.3);
-  padding:0.4rem 1rem;
-  margin-bottom:2rem;
-  width:fit-content;
-  opacity:0;
-  animation:fadeUp 0.6s ease forwards 0.2s;
-}
-.hero-badge::before{
-  content:'';
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--gold);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
-
-h1{
-  font-family:var(--display);
-  font-size:clamp(4rem,9vw,9rem);
-  line-height:0.93;
-  letter-spacing:0.04em;
-  color:var(--white);
-  margin-bottom:1.5rem;
-  opacity:0;
-  animation:fadeUp 0.8s ease forwards 0.4s;
-}
-h1 .gold{color:var(--gold)}
-
-.hero-role{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:clamp(0.9rem,2vw,1.35rem);
-  color:var(--silver);
-  margin-bottom:1.4rem;
-  opacity:0;
-  animation:fadeUp 0.7s ease forwards 0.6s;
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 52px;
+  background: rgba(14,30,58,0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(70,110,222,0.20);
 }
 
-.hero-desc{
-  max-width:600px;
-  font-size:0.97rem;
-  line-height:1.95;
-  color:var(--mist);
-  opacity:0;
-  animation:fadeUp 0.7s ease forwards 0.8s;
-  margin-bottom:3rem;
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.nav-logo span { color: var(--blue); }
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.22s;
+}
+.nav-links a:hover { color: var(--blue); }
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 52px 80px;
+  overflow: hidden;
 }
 
-.hero-kpis{
-  display:flex;gap:0;flex-wrap:wrap;
-  opacity:0;
-  animation:fadeUp 0.7s ease forwards 1s;
-  margin-bottom:3rem;
-}
-.kpi{
-  padding:1.4rem 2.2rem;
-  border:1px solid rgba(201,148,58,0.18);
-  border-right:none;
-  text-align:center;
-  background:rgba(20,31,48,0.6);
-  transition:background 0.3s;
-  min-width:110px;
-}
-.kpi:last-child{border-right:1px solid rgba(201,148,58,0.18)}
-.kpi:hover{background:rgba(201,148,58,0.07)}
-.kpi-num{
-  font-family:var(--display);
-  font-size:2.6rem;
-  letter-spacing:0.05em;
-  color:var(--gold);
-  display:block;line-height:1;
-}
-.kpi-label{
-  font-family:var(--mono);
-  font-size:0.6rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--silver);
-  display:block;margin-top:0.4rem;
-  line-height:1.4;
+.hero-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.3s ease forwards;
 }
 
-.hero-ctas{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  opacity:0;
-  animation:fadeUp 0.7s ease forwards 1.2s;
+.hero-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(4.5rem, 11vw, 10rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeUp 0.8s 0.55s ease forwards;
 }
-.btn-gold{
-  display:inline-block;
-  padding:0.85rem 2rem;
-  background:var(--gold);
-  color:var(--ink);
-  font-family:var(--mono);
-  font-size:0.72rem;font-weight:500;
-  letter-spacing:0.15em;text-transform:uppercase;
-  text-decoration:none;
-  transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
-}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,148,58,0.28)}
-.btn-wire{
-  display:inline-block;
-  padding:0.85rem 2rem;
-  border:1px solid rgba(197,212,227,0.22);
-  color:var(--mist);
-  font-family:var(--mono);
-  font-size:0.72rem;
-  letter-spacing:0.15em;text-transform:uppercase;
-  text-decoration:none;
-  transition:border-color 0.2s,color 0.2s;
-}
-.btn-wire:hover{border-color:var(--gold);color:var(--gold)}
+.hero-name .accent { color: var(--blue); }
 
-/* ── SECTIONS ────────────────────────────────────────────────── */
-.sec{padding:7rem 4rem;position:relative}
-.sec-inner{max-width:1160px;margin:0 auto}
-.sec-tag{
-  font-family:var(--mono);font-size:0.68rem;
-  letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.5rem;
-}
-.sec-title{
-  font-family:var(--display);
-  font-size:clamp(2.4rem,5vw,4.5rem);
-  letter-spacing:0.04em;
-  color:var(--white);line-height:1;
-  margin-bottom:0.6rem;
-}
-.sec-sub{
-  font-family:var(--serif);font-style:italic;
-  font-size:0.95rem;color:var(--silver);margin-bottom:2.5rem;
-}
-.gold-bar{width:36px;height:2px;background:var(--gold);margin-bottom:3.5rem}
-
-/* ── ABOUT ───────────────────────────────────────────────────── */
-#about{background:var(--steel)}
-.about-wrap{
-  display:grid;grid-template-columns:1.2fr 1fr;
-  gap:6rem;align-items:start;
-}
-.about-body p{
-  font-size:0.97rem;line-height:2;
-  color:var(--mist);opacity:0.85;margin-bottom:1.2rem;
-}
-.about-body strong{color:var(--gold2);font-weight:500}
-
-.profile-pills{display:flex;flex-direction:column;gap:0.8rem}
-.pill{
-  display:flex;align-items:flex-start;gap:1rem;
-  padding:1.1rem 1.3rem;
-  background:rgba(8,13,22,0.5);
-  border:1px solid rgba(201,148,58,0.1);
-  border-left:3px solid var(--gold);
-  transition:background 0.3s;
-}
-.pill:hover{background:rgba(201,148,58,0.05)}
-.pill-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem}
-.pill-text strong{
-  display:block;
-  font-family:var(--mono);font-size:0.66rem;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.25rem;
-}
-.pill-text p{font-size:0.83rem;opacity:0.7;margin:0;line-height:1.5}
-
-/* ── EXPERIENCE ──────────────────────────────────────────────── */
-#experience{background:var(--ink)}
-.timeline{position:relative;padding-left:2.5rem}
-.timeline::before{
-  content:'';
-  position:absolute;left:0;top:0.6rem;bottom:0;
-  width:1px;
-  background:linear-gradient(to bottom,var(--gold) 0%,rgba(201,148,58,0.08) 100%);
-}
-.tl-item{position:relative;margin-bottom:5rem}
-.tl-item::before{
-  content:'';
-  position:absolute;left:-2.56rem;top:0.5rem;
-  width:10px;height:10px;border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 0 4px rgba(201,148,58,0.12),0 0 16px rgba(201,148,58,0.35);
-}
-.tl-date{
-  font-family:var(--mono);font-size:0.68rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.4rem;opacity:0.85;
-}
-.tl-title{
-  font-family:var(--display);font-size:1.75rem;
-  letter-spacing:0.04em;color:var(--white);
-  margin-bottom:0.2rem;line-height:1.1;
-}
-.tl-co{
-  font-family:var(--serif);font-style:italic;
-  font-size:0.87rem;color:var(--silver);
-  margin-bottom:1rem;opacity:0.7;
-}
-.tl-summary{
-  font-size:0.93rem;line-height:1.9;
-  color:var(--mist);opacity:0.75;
-  margin-bottom:1.5rem;
-  border-left:2px solid rgba(201,148,58,0.22);
-  padding-left:1rem;font-style:italic;
-}
-.tl-cats{display:flex;flex-direction:column;gap:1.2rem}
-.tl-cat-title{
-  font-family:var(--mono);font-size:0.68rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--gold2);margin-bottom:0.5rem;
-}
-.tl-bullets{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
-.tl-bullets li{
-  display:flex;align-items:flex-start;gap:0.75rem;
-  font-size:0.9rem;line-height:1.75;
-  color:var(--mist);opacity:0.8;
-}
-.tl-bullets li::before{
-  content:'▸';color:var(--gold);
-  flex-shrink:0;font-size:0.75rem;margin-top:0.18rem;
+.hero-sub {
+  margin-top: 28px;
+  font-size: 1.08rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.62);
+  max-width: 560px;
+  line-height: 1.65;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.80s ease forwards;
 }
 
-/* ── PROJECTS ────────────────────────────────────────────────── */
-#projects{background:var(--steel)}
-.proj-filter{
-  display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem;
-}
-.pf-btn{
-  font-family:var(--mono);font-size:0.65rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  padding:0.45rem 1rem;
-  border:1px solid rgba(197,212,227,0.1);
-  color:var(--silver);
-  background:transparent;cursor:pointer;
-  transition:all 0.2s;
-}
-.pf-btn:hover,.pf-btn.active{
-  border-color:var(--gold);color:var(--gold);
-  background:rgba(201,148,58,0.06);
+.hero-cta {
+  margin-top: 44px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.0s ease forwards;
 }
 
-.proj-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:1.5rem;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.22s;
 }
-.proj-card{
-  border:1px solid rgba(197,212,227,0.07);
-  padding:2.2rem;
-  background:rgba(8,13,22,0.55);
-  position:relative;overflow:hidden;
-  transition:transform 0.3s,border-color 0.3s;
-  cursor:default;
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  border: 2px solid var(--blue);
 }
-.proj-card::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:2px;background:var(--gold);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform 0.4s ease;
+.btn-primary:hover {
+  background: transparent;
+  color: var(--blue);
 }
-.proj-card:hover{transform:translateY(-4px);border-color:rgba(201,148,58,0.2)}
-.proj-card:hover::after{transform:scaleX(1)}
-
-.proj-n{
-  font-family:var(--display);
-  font-size:4.5rem;
-  color:rgba(201,148,58,0.08);
-  position:absolute;top:0.8rem;right:1.2rem;
-  letter-spacing:0.05em;line-height:1;
-  pointer-events:none;
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.3);
 }
-.proj-badges{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem}
-.proj-badge{
-  font-family:var(--mono);font-size:0.6rem;
-  letter-spacing:0.1em;text-transform:uppercase;
-  padding:0.25rem 0.65rem;
-  border:1px solid rgba(201,148,58,0.25);
-  color:var(--gold);opacity:0.8;
-}
-.proj-badge.prod{
-  border-color:rgba(100,220,130,0.3);
-  color:#7de0a0;
-}
-.proj-badge.academic{
-  border-color:rgba(100,160,255,0.3);
-  color:#7ab0f0;
-}
-.proj-title{
-  font-family:var(--display);font-size:1.15rem;
-  letter-spacing:0.04em;color:var(--white);
-  margin-bottom:0.8rem;line-height:1.2;
-}
-.proj-stack{
-  font-family:var(--mono);font-size:0.68rem;
-  letter-spacing:0.06em;color:var(--silver);
-  opacity:0.6;margin-bottom:1rem;
-}
-.proj-desc{
-  font-size:0.86rem;line-height:1.85;
-  color:var(--silver);opacity:0.78;
-  margin-bottom:1.2rem;
-}
-.proj-outcome{
-  display:flex;align-items:flex-start;gap:0.5rem;
-  font-family:var(--mono);font-size:0.67rem;
-  letter-spacing:0.07em;color:var(--gold2);
-  line-height:1.5;
-}
-.proj-outcome::before{content:'▸';flex-shrink:0}
-
-/* ── SKILLS ──────────────────────────────────────────────────── */
-#skills{background:var(--plate)}
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.2rem;
-}
-.sk-card{
-  border:1px solid rgba(197,212,227,0.07);
-  background:rgba(8,13,22,0.45);
-  padding:1.8rem;
-  position:relative;overflow:hidden;
-  transition:transform 0.3s,border-color 0.3s;
-}
-.sk-card::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:2px;background:var(--gold);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform 0.4s ease;
-}
-.sk-card:hover{transform:translateY(-3px);border-color:rgba(201,148,58,0.18)}
-.sk-card:hover::after{transform:scaleX(1)}
-.sk-cat{
-  font-family:var(--mono);font-size:0.63rem;
-  letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:1rem;
-}
-.sk-items{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
-.sk-items li{
-  font-size:0.86rem;color:var(--mist);opacity:0.75;
-  line-height:1.5;padding-left:1rem;position:relative;
-}
-.sk-items li::before{
-  content:'–';position:absolute;left:0;
-  color:var(--gold);opacity:0.55;
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
-/* ── ACHIEVEMENTS ────────────────────────────────────────────── */
-#achievements{background:var(--ink)}
-.ach-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1.2rem;
+/* hero blueprint circle */
+.hero-circle {
+  position: absolute;
+  right: -120px; top: 50%;
+  transform: translateY(-50%);
+  width: 680px; height: 680px;
+  border-radius: 50%;
+  border: 1px solid rgba(70,110,222,0.22);
+  pointer-events: none;
 }
-.ach-card{
-  border:1px solid rgba(197,212,227,0.07);
-  background:rgba(20,31,48,0.5);
-  padding:2rem;
-  position:relative;
-  border-top:2px solid transparent;
-  transition:border-color 0.3s,background 0.3s;
+.hero-circle::before {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px dashed rgba(70,110,222,0.16);
 }
-.ach-card:hover{
-  border-top-color:var(--gold);
-  background:rgba(201,148,58,0.05);
-}
-.ach-icon{
-  font-size:1.6rem;margin-bottom:1rem;
-  display:block;
-}
-.ach-label{
-  font-family:var(--mono);font-size:0.65rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.5rem;
-}
-.ach-title{
-  font-size:0.95rem;font-weight:500;
-  color:var(--white);margin-bottom:0.5rem;line-height:1.4;
-}
-.ach-sub{
-  font-size:0.82rem;color:var(--silver);opacity:0.65;line-height:1.6;
+.hero-circle::after {
+  content: '';
+  position: absolute;
+  inset: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(70,110,222,0.10);
+  background: radial-gradient(circle, rgba(70,110,222,0.08) 0%, transparent 70%);
 }
 
-/* ── EDUCATION & CERTS ───────────────────────────────────────── */
-#education{background:var(--plate)}
-.edu-wrap{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:4rem;align-items:start;
-}
-.edu-card{
-  border:1px solid rgba(201,148,58,0.15);
-  padding:2.8rem;
-  background:rgba(8,13,22,0.45);
-  position:relative;
-}
-.edu-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:var(--gold);
-}
-.edu-degree{
-  font-family:var(--display);font-size:1.35rem;
-  letter-spacing:0.04em;color:var(--white);
-  margin-bottom:0.5rem;line-height:1.2;
-}
-.edu-school{font-size:0.87rem;color:var(--silver);opacity:0.65;margin-bottom:0.8rem}
-.edu-cgpa{
-  font-family:var(--mono);font-size:0.82rem;
-  letter-spacing:0.1em;color:var(--gold);margin-bottom:1.4rem;
-}
-.edu-highlight{
-  font-size:0.85rem;line-height:1.8;color:var(--mist);opacity:0.7;
+/* ── STATS BAR ── */
+.stats-bar {
+  position: relative;
+  z-index: 1;
+  background: var(--navy);
+  border-top: 1px solid rgba(70,110,222,0.25);
+  border-bottom: 1px solid rgba(70,110,222,0.25);
+  padding: 40px 52px;
+  display: flex;
+  gap: 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.cert-stack{display:flex;flex-direction:column;gap:0.8rem}
-.cert-row{
-  display:flex;align-items:flex-start;gap:1rem;
-  padding:1rem 1.2rem;
-  border:1px solid rgba(197,212,227,0.07);
-  background:rgba(8,13,22,0.35);
-  transition:border-color 0.3s;
+.stat-item {
+  text-align: center;
+  padding: 0 32px;
+  border-right: 1px solid rgba(70,110,222,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
-.cert-row:hover{border-color:rgba(201,148,58,0.2)}
-.cert-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--gold);flex-shrink:0;margin-top:0.35rem;
+.stat-item:last-child { border-right: none; }
+.stat-item.visible { opacity: 1; transform: translateY(0); }
+
+.stat-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 3.2rem;
+  color: var(--blue);
+  line-height: 1;
 }
-.cert-row strong{
-  display:block;font-size:0.86rem;
-  color:var(--white);font-weight:400;
-  margin-bottom:0.18rem;line-height:1.4;
-}
-.cert-row span{
-  font-family:var(--mono);font-size:0.63rem;
-  color:var(--gold);opacity:0.75;letter-spacing:0.06em;
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.50);
+  margin-top: 6px;
 }
 
-/* ── CONTACT ─────────────────────────────────────────────────── */
-#contact{
-  text-align:center;
-  padding:8rem 4rem;
-  background:var(--ink);
-  border-top:1px solid rgba(201,148,58,0.1);
-}
-.contact-inner{max-width:640px;margin:0 auto}
-.contact-headline{
-  font-family:var(--display);
-  font-size:clamp(3rem,7vw,6rem);
-  letter-spacing:0.04em;
-  color:var(--white);line-height:1;margin-bottom:1rem;
-}
-.contact-headline span{color:var(--gold)}
-.contact-sub{
-  font-family:var(--serif);font-style:italic;
-  font-size:0.97rem;color:var(--silver);
-  margin-bottom:3rem;line-height:1.8;
-}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:0.8rem;margin-bottom:3rem;text-align:left;
-}
-.c-link{
-  display:flex;align-items:center;gap:0.8rem;
-  padding:1rem 1.3rem;
-  border:1px solid rgba(197,212,227,0.08);
-  color:var(--mist);text-decoration:none;
-  font-family:var(--mono);font-size:0.73rem;
-  letter-spacing:0.06em;
-  transition:border-color 0.2s,color 0.2s;
-}
-.c-link:hover{border-color:var(--gold);color:var(--gold)}
-.c-icon{font-size:1rem}
+/* ── SECTION SHARED ── */
+section { position: relative; z-index: 1; padding: 96px 52px; }
 
-footer{
-  border-top:1px solid rgba(201,148,58,0.07);
-  padding:1.4rem 4rem;
-  display:flex;justify-content:space-between;align-items:center;
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 60px;
 }
-footer p{
-  font-family:var(--mono);font-size:0.63rem;
-  letter-spacing:0.08em;color:var(--silver);opacity:0.3;
+.section-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(70,110,222,0.5), transparent);
+  margin-bottom: 8px;
 }
 
-/* ── ANIMATIONS ──────────────────────────────────────────────── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(22px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.reveal{
-  opacity:0;transform:translateY(28px);
-  transition:opacity 0.7s ease,transform 0.7s ease;
-}
-.reveal.visible{opacity:1;transform:none}
+/* ── ABOUT ── */
+#about { background: rgba(27,57,107,0.25); }
 
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
-@media(max-width:960px){
-  nav{padding:1rem 1.5rem}
-  .nav-links{gap:1.2rem}
-  .sec,#hero{padding:5rem 1.5rem}
-  #hero{padding-top:7rem}
-  .about-wrap,.edu-wrap{grid-template-columns:1fr;gap:2.5rem}
-  .contact-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
-@media(max-width:600px){
-  .nav-links{display:none}
-  .hero-ctas{flex-direction:column}
-  .kpi{padding:1rem 1.4rem}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.about-text p strong { color: var(--white); font-weight: 600; }
+
+.about-highlight {
+  border-left: 3px solid var(--blue);
+  padding-left: 22px;
+  margin-top: 28px;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+.contact-card {
+  background: rgba(27,57,107,0.45);
+  border: 1px solid rgba(70,110,222,0.25);
+  border-radius: 6px;
+  padding: 36px;
+}
+.contact-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(70,110,222,0.12);
+  font-size: 0.92rem;
+}
+.contact-row:last-of-type { border-bottom: none; }
+.contact-icon {
+  width: 36px; height: 36px;
+  background: var(--blue-dim);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.contact-row a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-row a:hover { color: var(--blue); }
+
+/* ── EXPERIENCE ── */
+#experience { }
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--blue), rgba(70,110,222,0.1));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s ease;
+}
+.timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+.timeline-dot {
+  position: absolute;
+  left: -49px;
+  top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 3px solid var(--navy-dark);
+  box-shadow: 0 0 12px var(--blue-glow);
+}
+
+.timeline-period {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.timeline-role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+.timeline-company {
+  font-size: 0.90rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.timeline-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.timeline-bullets li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.60;
+}
+.timeline-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.75rem;
+  top: 2px;
+}
+
+/* ── PROJECTS ── */
+#projects { background: rgba(27,57,107,0.18); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: rgba(27,57,107,0.35);
+  border: 1px solid rgba(70,110,222,0.20);
+  border-radius: 6px;
+  padding: 32px;
+  transition: all 0.28s;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.28s, box-shadow 0.28s;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.project-card:hover::before { transform: scaleX(1); }
+.project-card:hover {
+  border-color: rgba(70,110,222,0.50);
+  box-shadow: 0 8px 40px rgba(70,110,222,0.18);
+}
+.project-card.visible { opacity: 1; transform: translateY(0); }
+
+.project-category {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.project-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.project-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.project-results {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 22px;
+}
+.project-results li {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  padding-left: 16px;
+  position: relative;
+}
+.project-results li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--blue);
+  font-size: 0.68rem;
+}
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(70,110,222,0.15);
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(70,110,222,0.22);
+}
+
+/* ── SKILLS ── */
+#skills { }
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.skills-group-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(70,110,222,0.25);
+}
+
+.skill-row { margin-bottom: 18px; }
+.skill-name-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+.skill-name {
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.80);
+}
+.skill-pct {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--blue);
+}
+.skill-bar-bg {
+  height: 4px;
+  background: rgba(70,110,222,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy), var(--blue));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.tag-lg {
+  font-size: 0.80rem;
+  padding: 7px 14px;
+  border-radius: 4px;
+  background: rgba(27,57,107,0.55);
+  border: 1px solid rgba(70,110,222,0.25);
+  color: rgba(255,255,255,0.75);
+  transition: all 0.22s;
+  cursor: default;
+}
+.tag-lg:hover {
+  background: rgba(70,110,222,0.25);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+/* ── ACHIEVEMENTS ── */
+#achievements { background: var(--navy); }
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.achievement-card {
+  background: rgba(14,30,58,0.70);
+  border: 1px solid rgba(70,110,222,0.20);
+  border-radius: 6px;
+  padding: 28px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: all 0.6s ease;
+}
+.achievement-card.visible { opacity: 1; transform: translateY(0); }
+
+.achievement-icon {
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  background: var(--blue-dim);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+.achievement-text strong {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.achievement-text span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.60);
+  line-height: 1.45;
+}
+
+/* ── EDUCATION ── */
+#education { }
+
+.edu-card {
+  background: rgba(27,57,107,0.30);
+  border: 1px solid rgba(70,110,222,0.22);
+  border-radius: 6px;
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.edu-badge {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: var(--blue-dim);
+  border: 2px solid rgba(70,110,222,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.edu-degree {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.edu-institute {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.60);
+  margin-bottom: 14px;
+}
+.edu-meta {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.edu-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.edu-meta-item span { color: var(--blue); }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  background: var(--black);
+  border-top: 1px solid rgba(70,110,222,0.20);
+  padding: 48px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+.footer-name span { color: var(--blue); }
+
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--blue); }
+
+.footer-open {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+}
+.footer-open span {
+  display: block;
+  color: rgba(70,110,222,0.9);
+  margin-top: 4px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-dark); }
+::-webkit-scrollbar-thumb { background: rgba(70,110,222,0.5); border-radius: 3px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { gap: 20px; }
+  section { padding: 72px 24px; }
+  #hero { padding: 110px 24px 60px; }
+  .stats-bar { padding: 28px 24px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .skills-layout { grid-template-columns: 1fr; }
+  .edu-card { grid-template-columns: 1fr; gap: 20px; }
+  .hero-circle { display: none; }
+  footer { padding: 36px 24px; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .stat-item { padding: 10px 14px; border-right: none; border-bottom: 1px solid rgba(70,110,222,0.15); }
+  .stat-item:last-child { border-bottom: none; }
+  .stats-bar { flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">Yamuna Moorthy</div>
+  <div class="nav-logo">Yamuna<span>.</span>M</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -626,528 +773,539 @@ footer p{
     <li><a href="#skills">Skills</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ────────────────────────────────────────────────────── -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-
-  <div class="hero-badge">Digitalization &amp; Automation Engineer · Open to Opportunities</div>
-
-  <h1>YAMUNA<br><span class="gold">MOORTHY</span></h1>
-
-  <p class="hero-role">Manufacturing Analytics · Digitalization &amp; Automation · Industry 4.0 · EOT/HOT Crane Systems</p>
-
-  <p class="hero-desc">
-    I build manufacturing data systems that drive measurable process improvement — from structured fault capture and root cause analysis to plant-wide KPI dashboards that engineers and managers depend on every day at one of India's largest integrated steel plants.
+  <div class="hero-circle"></div>
+  <div class="hero-tag">// E&I Engineer · Industrial Digitalization · Reliability</div>
+  <h1 class="hero-name">Yamuna<br><span class="accent">Moorthy</span></h1>
+  <p class="hero-sub">
+    Electrical &amp; Instrumentation Engineer managing E&amp;I maintenance of <strong>200+ EOT cranes</strong> at JSW Steel — and building the digital tools that make industrial maintenance smarter.
   </p>
-
-  <div class="hero-kpis">
-    <div class="kpi">
-      <span class="kpi-num">200+</span>
-      <span class="kpi-label">EOT/HOT Cranes<br>Monitored</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi-num">25%</span>
-      <span class="kpi-label">Reduction in<br>Diagnostic Time</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi-num">10+</span>
-      <span class="kpi-label">Power BI<br>Dashboards Built</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi-num">15h</span>
-      <span class="kpi-label">Weekly Manual<br>Effort Eliminated</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi-num">5+</span>
-      <span class="kpi-label">Departments<br>Served</span>
-    </div>
-    <div class="kpi">
-      <span class="kpi-num">4mo</span>
-      <span class="kpi-label">Field → Analytics<br>Pivot</span>
-    </div>
-  </div>
-
-  <div class="hero-ctas">
-    <a href="mailto:yam.mrthy@gmail.com" class="btn-gold">Get in Touch →</a>
-    <a href="https://linkedin.com/in/yammrthy" target="_blank" class="btn-wire">LinkedIn ↗</a>
-    <a href="https://github.com/yammrthy" target="_blank" class="btn-wire">GitHub ↗</a>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="mailto:yam.mrthy@gmail.com">📧 Get In Touch</a>
+    <a class="btn btn-outline" href="https://linkedin.com/in/yammrthy" target="_blank">LinkedIn Profile</a>
+    <a class="btn btn-outline" href="https://yammrthy.github.io" target="_blank">Portfolio Site</a>
   </div>
 </section>
 
-<!-- ── ABOUT ────────────────────────────────────────────────────── -->
-<section id="about" class="sec" style="background:var(--steel)">
-  <div class="sec-inner about-wrap">
-    <div class="about-body reveal">
-      <p class="sec-tag">// About</p>
-      <h2 class="sec-title">Engineer.<br>Analyst.<br>Builder.</h2>
-      <div class="gold-bar"></div>
-      <p>I am an <strong>Electrical &amp; Electronics engineer (CGPA 8.98)</strong> with hands-on experience in industrial manufacturing analytics at <strong>JSW Steel Vijayanagar Works</strong> — one of India's largest integrated steel plants.</p>
-      <p>I started as a field engineer in <strong>EOT/HOT crane maintenance</strong>. Within 4 months I had identified a critical data gap across the division, independently built a structured fault documentation and KPI reporting system using self-learned tools, and demonstrated enough measurable impact for it to be adopted plant-wide. I was promoted to <strong>Assistant Manager – Digitalization &amp; Automation</strong> within 12 months.</p>
-      <p>My work sits at the intersection of <strong>industrial operations and manufacturing data systems</strong> — I understand both the machines and the data behind them. I am particularly drawn to <strong>process digitization, IIoT implementation, zero-defect quality frameworks,</strong> and <strong>Industry 4.0</strong> deployment in heavy manufacturing environments.</p>
-    </div>
-    <div class="profile-pills reveal">
-      <div class="pill"><div class="pill-icon">📍</div><div class="pill-text"><strong>Location</strong><p>Toranagallu, Karnataka · Open to relocation (Bengaluru preferred, Pan-India)</p></div></div>
-      <div class="pill"><div class="pill-icon">🎓</div><div class="pill-text"><strong>Education</strong><p>B.E. Electrical &amp; Electronics Engineering · Sona College of Technology · CGPA 8.98 / 10</p></div></div>
-      <div class="pill"><div class="pill-icon">🏭</div><div class="pill-text"><strong>Industry</strong><p>Steel &amp; Heavy Manufacturing · EOT/HOT Crane Maintenance · Plant-level Operations</p></div></div>
-      <div class="pill"><div class="pill-icon">🎯</div><div class="pill-text"><strong>Target Roles</strong><p>Digitalization Engineer · Manufacturing Analytics · IIoT Implementation · Industry 4.0</p></div></div>
-      <div class="pill"><div class="pill-icon">📧</div><div class="pill-text"><strong>Contact</strong><p>yam.mrthy@gmail.com · +91 84895-00818</p></div></div>
-    </div>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number" data-target="38">0</div>
+    <div class="stat-label">% Repeat Breakdown Reduction</div>
   </div>
-</section>
-
-<!-- ── EXPERIENCE ───────────────────────────────────────────────── -->
-<section id="experience" class="sec">
-  <div class="sec-inner">
-    <p class="sec-tag reveal">// Experience</p>
-    <h2 class="sec-title reveal">Work<br>History</h2>
-    <div class="gold-bar reveal"></div>
-
-    <div class="timeline">
-
-      <!-- ROLE 1: AM -->
-      <div class="tl-item reveal">
-        <p class="tl-date">Jul 2025 – Present</p>
-        <h3 class="tl-title">Assistant Manager — Digitalization &amp; Automation</h3>
-        <p class="tl-co">JSW Steel Limited · Vijayanagar Works, Karnataka &nbsp;·&nbsp; One of India's largest integrated steel plants</p>
-        <p class="tl-summary">Sole analytics and digitalization owner across the Crane Maintenance Division. Built the plant's BI and process improvement function from scratch — no existing dashboards, no playbook. Primary data partner for 5+ departments and senior leadership.</p>
-        <div class="tl-cats">
-          <div>
-            <p class="tl-cat-title">Process Improvement &amp; Data Capture</p>
-            <ul class="tl-bullets">
-              <li>Designed structured fault data capture system (problem description → root cause → corrective action) for 200+ EOT/HOT cranes, establishing repeatable, auditable process controls aligned with zero-defect quality principles.</li>
-              <li>Standardised fault documentation across all crane maintenance divisions, reducing diagnostic time and estimated repeat fault occurrences by 25%, directly improving equipment availability.</li>
-              <li>Built predictive fault pattern analysis identifying recurring failure modes, enabling proactive maintenance scheduling and reducing unplanned equipment downtime.</li>
-              <li>Enabled engineers to remotely assess equipment health via Power BI dashboards before site intervention, cutting unnecessary field visits and accelerating Mean Time to Repair (MTTR).</li>
-            </ul>
-          </div>
-          <div>
-            <p class="tl-cat-title">Data Systems &amp; Digital Tools</p>
-            <ul class="tl-bullets">
-              <li>Architected and deployed 10+ Power BI dashboards tracking fault type, frequency, equipment downtime, and rectification KPIs — now the standard reporting interface across all plant maintenance divisions.</li>
-              <li>Developed a browser-based maintenance analytics tool (HTML/CSS/JS) for field staff without Excel access, broadening data visibility at zero additional licensing cost.</li>
-              <li>Implemented end-to-end MIS automation pipeline (Power Automate + SharePoint) eliminating 15+ hrs/week of manual effort with zero SLA misses since deployment.</li>
-            </ul>
-          </div>
-          <div>
-            <p class="tl-cat-title">Stakeholder Reporting &amp; Quality</p>
-            <ul class="tl-bullets">
-              <li>Embedded structured root cause analysis into daily maintenance workflows — every fault resolution captures safety observations, failure causes, and corrective measures, creating a plant-wide quality data repository.</li>
-              <li>Presented equipment health data and maintenance trends to plant managers and senior leadership, translating complex technical patterns into actionable operational insights.</li>
-              <li>Drove cross-departmental reporting standardisation across Operations, Equipment Management, Engineering, and Production Support — consistent best practice across 5+ functions.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ROLE 2: GET -->
-      <div class="tl-item reveal">
-        <p class="tl-date">Jul 2024 – Jun 2025</p>
-        <h3 class="tl-title">Graduate Engineer Trainee — EOT Crane Maintenance</h3>
-        <p class="tl-co">JSW Steel Limited · Vijayanagar Works, Karnataka</p>
-        <p class="tl-summary">Joined as a fresher in EOT/HOT crane maintenance. Within 4 months self-learned Power BI and Power Automate, identified a critical operational data gap, built the plant's first analytics dashboards, and transitioned to a digitalization role — entirely self-initiated.</p>
-        <ul class="tl-bullets">
-          <li>Executed preventive maintenance schedules for EOT crane fleet in a high-throughput steel production environment; achieved zero production-critical crane downtime throughout tenure.</li>
-          <li>Diagnosed and resolved 20+ crane breakdown incidents including VFD drive failures, limit switch faults, and control panel issues.</li>
-          <li>Identified a critical operational data gap across 5+ departments as a field engineer; independently conceived and built a plant-wide analytics solution using entirely self-learned tools.</li>
-          <li>Transitioned from field maintenance to Business Analytics role within 4 months based purely on self-driven measurable impact.</li>
-          <li>Promoted to Assistant Manager within 12 months — received Outstanding Performance Rating with 9.3% salary increment.</li>
-        </ul>
-      </div>
-
-    </div>
+  <div class="stat-item">
+    <div class="stat-number" data-target="92">0</div>
+    <div class="stat-label">% PM Compliance Achieved</div>
   </div>
-</section>
-
-<!-- ── PROJECTS ─────────────────────────────────────────────────── -->
-<section id="projects" class="sec" style="background:var(--steel)">
-  <div class="sec-inner">
-    <p class="sec-tag reveal">// Projects</p>
-    <h2 class="sec-title reveal">Delivered<br>Work</h2>
-    <p class="sec-sub reveal">Production deployments at JSW Steel + independent technical builds</p>
-    <div class="gold-bar reveal"></div>
-
-    <div class="proj-filter reveal">
-      <button class="pf-btn active" data-filter="all">All Projects</button>
-      <button class="pf-btn" data-filter="prod">Production (JSW Steel)</button>
-      <button class="pf-btn" data-filter="bi">BI &amp; Analytics</button>
-      <button class="pf-btn" data-filter="auto">Automation</button>
-      <button class="pf-btn" data-filter="iiot">IIoT &amp; Systems</button>
-    </div>
-
-    <div class="proj-grid">
-
-      <!-- P1 -->
-      <div class="proj-card reveal" data-tags="prod bi auto">
-        <div class="proj-n">01</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Power BI</span>
-          <span class="proj-badge">Power Automate</span>
-        </div>
-        <h3 class="proj-title">Plant-Wide Crane KPI Analytics &amp; MIS Automation</h3>
-        <p class="proj-stack">Power BI · Power Automate · SharePoint · DAX · Excel</p>
-        <p class="proj-desc">Built the entire BI and reporting function for JSW Steel's Crane Maintenance Division from scratch — no existing dashboards, no templates. Deployed 10+ dashboards tracking fault type, frequency, equipment downtime, and rectification KPIs for 200+ EOT/HOT cranes. Automated daily/weekly/monthly MIS delivery to 30+ stakeholders via Power Automate + SharePoint. Adopted as the plant-wide reporting standard across all maintenance divisions.</p>
-        <p class="proj-outcome">15+ hrs/week eliminated · Zero SLA misses · Standard across 5+ departments</p>
-      </div>
-
-      <!-- P2 -->
-      <div class="proj-card reveal" data-tags="prod bi">
-        <div class="proj-n">02</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Process Design</span>
-          <span class="proj-badge">RCA</span>
-        </div>
-        <h3 class="proj-title">Structured Fault Capture &amp; RCA System</h3>
-        <p class="proj-stack">Power BI · Process Design · Quality Systems · SharePoint</p>
-        <p class="proj-desc">Designed a repeatable manufacturing fault workflow: problem description → root cause → corrective action — standardised across all crane maintenance divisions. Created the plant's first quality data repository for equipment failures, enabling engineers to remotely diagnose and prepare before reaching the crane. Every fault resolution now captures safety observations and corrective measures.</p>
-        <p class="proj-outcome">~25% reduction in repeat faults and diagnostic time · Plant-wide quality repository</p>
-      </div>
-
-      <!-- P3 -->
-      <div class="proj-card reveal" data-tags="prod bi">
-        <div class="proj-n">03</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Web Dev</span>
-        </div>
-        <h3 class="proj-title">Browser-Based Field Maintenance Analytics Tool</h3>
-        <p class="proj-stack">HTML · CSS · JavaScript · Field Deployment</p>
-        <p class="proj-desc">Designed and built an internal web application to surface maintenance analytics for field engineers with no Excel access. Deployed across the plant at zero additional licensing cost. A fully self-initiated digital manufacturing initiative that broadened data visibility to the entire workforce, not just office staff. Built and iterated based on direct field engineer feedback.</p>
-        <p class="proj-outcome">Zero cost deployment · Full plant-wide field adoption</p>
-      </div>
-
-      <!-- P4 -->
-      <div class="proj-card reveal" data-tags="prod bi auto">
-        <div class="proj-n">04</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Power BI</span>
-          <span class="proj-badge">Power Automate</span>
-        </div>
-        <h3 class="proj-title">Fleet Management System</h3>
-        <p class="proj-stack">HTML · CSS · JavaScript · SQL · Firebase</p>
-        <p class="proj-desc">Independently designed and deployed a full-stack web application for real-time fleet tracking and operational monitoring across departments. Integrated Firebase for live data sync with a SQL backend for historical reporting and audit trail. Used in live production operations by the plant operations team. Adopted plant-wide after successful pilot — recognised by the department head.</p>
-        <p class="proj-outcome">Plant-wide adoption · Live production use · Recognised by department head</p>
-      </div>
-
-      <!-- P5 -->
-      <div class="proj-card reveal" data-tags="bi auto prod">
-        <div class="proj-n">05</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Power BI</span>
-          <span class="proj-badge">Sustainability</span>
-        </div>
-        <h3 class="proj-title">Energy Monitoring Dashboard</h3>
-        <p class="proj-stack">Power BI · Power Automate · DAX</p>
-        <p class="proj-desc">Built a department-wise energy consumption tracking dashboard with threshold-based alerting via Power Automate, identifying high-consumption zones across the plant. Contributed directly to the plant's energy audit preparation and sustainability reporting. Threshold alerts enabled proactive intervention before energy targets were breached.</p>
-        <p class="proj-outcome">Contributed to plant energy audit · Sustainability KPI reporting</p>
-      </div>
-
-      <!-- P6 -->
-      <div class="proj-card reveal" data-tags="auto bi">
-        <div class="proj-n">06</div>
-        <div class="proj-badges">
-          <span class="proj-badge prod">Live · JSW Steel</span>
-          <span class="proj-badge">Python</span>
-          <span class="proj-badge">Automation</span>
-        </div>
-        <h3 class="proj-title">Automated Email Alert &amp; Report System</h3>
-        <p class="proj-stack">Python · Power Automate · Excel · SQL</p>
-        <p class="proj-desc">Built an automated workflow that pulls live data from Excel/SQL sources, generates formatted PDF reports, and distributes them to stakeholders on schedule. Eliminated 8+ hours/week of manual reporting across 3 departments at JSW Steel. Handles daily, weekly, and monthly cycles with threshold-based email alerts for anomaly conditions.</p>
-        <p class="proj-outcome">8+ hrs/week eliminated · 3 departments automated · Zero missed distributions</p>
-      </div>
-
-      <!-- P7 -->
-      <div class="proj-card reveal" data-tags="iiot">
-        <div class="proj-n">07</div>
-        <div class="proj-badges">
-          <span class="proj-badge">Python</span>
-          <span class="proj-badge">MQTT</span>
-          <span class="proj-badge iiot">IIoT</span>
-        </div>
-        <h3 class="proj-title">IIoT Sensor Data Pipeline</h3>
-        <p class="proj-stack">Python · MQTT · Firebase · Grafana</p>
-        <p class="proj-desc">Architected a complete end-to-end IIoT pipeline: simulated sensor data → MQTT broker → Firebase → Grafana visualisation. Demonstrated a predictive maintenance use case by flagging vibration and temperature anomalies before threshold breach — proving early fault detection without costly hardware changes. Built to showcase an industry-ready architecture for retrofitting existing plant machinery.</p>
-        <p class="proj-outcome">Anomaly detection before threshold breach · Full edge-to-cloud pipeline</p>
-      </div>
-
-      <!-- P8 -->
-      <div class="proj-card reveal" data-tags="iiot">
-        <div class="proj-n">08</div>
-        <div class="proj-badges">
-          <span class="proj-badge">Siemens TIA Portal</span>
-          <span class="proj-badge">Ladder Logic</span>
-          <span class="proj-badge iiot">PLC</span>
-        </div>
-        <h3 class="proj-title">PLC-Based Conveyor Control System</h3>
-        <p class="proj-stack">Siemens TIA Portal · Ladder Logic · HMI</p>
-        <p class="proj-desc">Programmed a full conveyor belt control simulation (start/stop, forward/reverse, emergency stop) using Siemens TIA Portal with Ladder Logic. Implemented interlocks, alarm management, and an HMI operator screen for real-time control — validated on simulator with complete demo documentation. Demonstrates applied PLC programming for industrial manufacturing environments.</p>
-        <p class="proj-outcome">Full interlocks + alarms + HMI · Validated on TIA Portal simulator</p>
-      </div>
-
-      <!-- P9 -->
-      <div class="proj-card reveal" data-tags="iiot">
-        <div class="proj-n">09</div>
-        <div class="proj-badges">
-          <span class="proj-badge academic">Academic</span>
-          <span class="proj-badge">ML</span>
-          <span class="proj-badge">Predictive Maintenance</span>
-        </div>
-        <h3 class="proj-title">AI-Powered Industrial Maintenance System</h3>
-        <p class="proj-stack">Machine Learning · Sensor Data Analysis · Python</p>
-        <p class="proj-desc">Final-year academic project — developed a machine learning-based predictive maintenance solution analysing real-time sensor data to detect anomalies and predict equipment failures before occurrence. The system demonstrated measurable reduction in unplanned downtime and improved equipment reliability. Directly relevant to the real-world IIoT work subsequently deployed at JSW Steel.</p>
-        <p class="proj-outcome">Predictive fault detection before failure occurrence · Industry 4.0 aligned</p>
-      </div>
-
-    </div>
+  <div class="stat-item">
+    <div class="stat-number" data-target="200">0</div>
+    <div class="stat-label">+ EOT Cranes Managed</div>
   </div>
-</section>
+  <div class="stat-item">
+    <div class="stat-number" data-target="14">0</div>
+    <div class="stat-label">Months Zero LTI</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" data-target="3">0</div>
+    <div class="stat-label">+ Hrs/Day Reporting Automated</div>
+  </div>
+</div>
 
-<!-- ── SKILLS ───────────────────────────────────────────────────── -->
-<section id="skills" class="sec" style="background:var(--plate)">
-  <div class="sec-inner">
-    <p class="sec-tag reveal">// Technical Skills</p>
-    <h2 class="sec-title reveal">Toolkit</h2>
-    <div class="gold-bar reveal"></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 01 · Profile</div>
+      <div class="section-title">About</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-    <div class="skills-grid">
-      <div class="sk-card reveal">
-        <p class="sk-cat">Analytics &amp; BI</p>
-        <ul class="sk-items">
-          <li>Microsoft Power BI — DAX, Data Modelling, Dashboard Design</li>
-          <li>Advanced Excel — Pivot Tables, VLOOKUP, Macros, Dynamic Charts</li>
-          <li>KPI Design &amp; MIS Reporting (Daily / Weekly / Monthly)</li>
-          <li>OEE Tracking — Availability, Performance, Quality metrics</li>
-        </ul>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm an <strong>Electrical &amp; Instrumentation Engineer</strong> with 2+ years of experience in EOT crane maintenance, predictive/preventive maintenance, breakdown rectification, and RCFA at <strong>JSW Steel</strong> — one of India's largest steel plants.
+      </p>
+      <p>
+        Skilled in <strong>VFD/PLC troubleshooting</strong>, shutdown execution, KPI monitoring, and industrial safety. I currently oversee E&amp;I maintenance across Steel Melt Shop, Blast Furnace, Rolling Mills, and Coke Ovens.
+      </p>
+      <p>
+        What sets me apart — I build the tools that make maintenance smarter. I develop <strong>Power BI dashboards</strong>, Power Automate workflows, SQL data pipelines, and full-stack web applications that deliver measurable reduction in manual effort and drive plant-wide digitalization.
+      </p>
+      <div class="about-highlight">
+        "I sit at the intersection of core maintenance engineering and industrial digitalization — actively seeking roles in Maintenance Engineering, Reliability, Plant Digitalization, or Industrial Analytics across Bangalore &amp; PAN India."
       </div>
-      <div class="sk-card reveal">
-        <p class="sk-cat">Automation &amp; Workflow</p>
-        <ul class="sk-items">
-          <li>Microsoft Power Automate — Scheduled Flows, Multi-step Workflows</li>
-          <li>SharePoint Integration</li>
-          <li>Automated MIS Distribution (30+ stakeholders)</li>
-          <li>Python — scripting, data handling, report generation</li>
-        </ul>
+    </div>
+
+    <div class="contact-card">
+      <h3>Contact & Links</h3>
+      <div class="contact-row">
+        <div class="contact-icon">📞</div>
+        <a href="tel:+918895000818">+91-8895-00818</a>
       </div>
-      <div class="sk-card reveal">
-        <p class="sk-cat">Web &amp; Digital Tools</p>
-        <ul class="sk-items">
-          <li>HTML, CSS, JavaScript — internal manufacturing tools</li>
-          <li>SQL — data querying and backend reporting</li>
-          <li>Firebase — real-time data sync</li>
-          <li>Grafana — industrial data visualisation</li>
-        </ul>
+      <div class="contact-row">
+        <div class="contact-icon">📧</div>
+        <a href="mailto:yam.mrthy@gmail.com">yam.mrthy@gmail.com</a>
       </div>
-      <div class="sk-card reveal">
-        <p class="sk-cat">Industrial &amp; IIoT</p>
-        <ul class="sk-items">
-          <li>EOT/HOT Crane Maintenance &amp; Operations</li>
-          <li>Siemens TIA Portal — Ladder Logic, HMI (simulation)</li>
-          <li>MQTT Protocol — IIoT data pipelines</li>
-          <li>VFD Drives, Circuit Breakers, Switchgear</li>
-        </ul>
+      <div class="contact-row">
+        <div class="contact-icon">🔗</div>
+        <a href="https://linkedin.com/in/yammrthy" target="_blank">linkedin.com/in/yammrthy</a>
       </div>
-      <div class="sk-card reveal">
-        <p class="sk-cat">Manufacturing Domain</p>
-        <ul class="sk-items">
-          <li>Plant-Level KPI Tracking &amp; Equipment Reliability</li>
-          <li>Root Cause Analysis (RCA) &amp; Fault Pattern Analysis</li>
-          <li>Preventive &amp; Breakdown Maintenance</li>
-          <li>Steel &amp; Heavy Manufacturing Operations</li>
-        </ul>
+      <div class="contact-row">
+        <div class="contact-icon">🌐</div>
+        <a href="https://yammrthy.github.io" target="_blank">yammrthy.github.io</a>
       </div>
-      <div class="sk-card reveal">
-        <p class="sk-cat">Industry 4.0 &amp; Pursuing</p>
-        <ul class="sk-items">
-          <li>IIoT Concepts &amp; Architecture (NPTEL Elite Certified)</li>
-          <li>Predictive Maintenance &amp; Anomaly Detection</li>
-          <li>Microsoft PL-300 Power BI Analyst — Pursuing</li>
-          <li>Microsoft PL-500 Power Automate RPA — Pursuing</li>
-        </ul>
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <span style="color:rgba(255,255,255,0.65);">Bellary, Karnataka · Open to Bangalore &amp; PAN India</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ACHIEVEMENTS ─────────────────────────────────────────────── -->
-<section id="achievements" class="sec" style="background:var(--ink)">
-  <div class="sec-inner">
-    <p class="sec-tag reveal">// Recognition</p>
-    <h2 class="sec-title reveal">Achievements &amp;<br>Awards</h2>
-    <div class="gold-bar reveal"></div>
-
-    <div class="ach-grid">
-      <div class="ach-card reveal">
-        <span class="ach-icon">🏆</span>
-        <p class="ach-label">JSW Steel · 2025</p>
-        <p class="ach-title">Outstanding Performance Rating + 9.3% Salary Increment</p>
-        <p class="ach-sub">Year 1 as a fresh graduate — highest performance band, recognising plant-wide analytics deployment and measurable process improvement impact.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">⚡</span>
-        <p class="ach-label">JSW Steel · 2024</p>
-        <p class="ach-title">Field-to-Analytics Pivot in 4 Months</p>
-        <p class="ach-sub">Identified a critical operational data gap as a field engineer, self-learned Power BI and Power Automate, built the analytics system, and transitioned to a digitalization role — entirely self-initiated.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">📊</span>
-        <p class="ach-label">JSW Steel · Plant-Wide</p>
-        <p class="ach-title">Dashboards Adopted Across All Maintenance Divisions</p>
-        <p class="ach-sub">Power BI dashboards built for Crane Maintenance extended to multiple departments as the default reporting standard — recognised by department head.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">🥇</span>
-        <p class="ach-label">National · 2023</p>
-        <p class="ach-title">All India Women-Only Hackathon — National Finalist</p>
-        <p class="ach-sub">Selected as a finalist in a national-level hackathon, demonstrating problem-solving ability and technical innovation under competition conditions.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">💡</span>
-        <p class="ach-label">Sona College · 2022</p>
-        <p class="ach-title">1st Prize — Ignite'22 Innovation Day</p>
-        <p class="ach-sub">Cash award ₹1,000 — recognised for best technical innovation project presented at the college's annual engineering showcase.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">🎓</span>
-        <p class="ach-label">InternEZY · 2022</p>
-        <p class="ach-title">Best Ongoing Student Award</p>
-        <p class="ach-sub">Recognised during the Data Structures &amp; Algorithms internship program (Nov–Dec 2022) for consistent performance and engagement throughout the cohort.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">📋</span>
-        <p class="ach-label">NPTEL · IIT Certified</p>
-        <p class="ach-title">Industry 4.0 &amp; IIoT — Elite Grade (69%)</p>
-        <p class="ach-sub">National Programme on Technology Enhanced Learning, IIT-backed certification in Industry 4.0 and Industrial Internet of Things.</p>
-      </div>
-      <div class="ach-card reveal">
-        <span class="ach-icon">📌</span>
-        <p class="ach-label">TCS · 2023</p>
-        <p class="ach-title">TCS National Qualifier Test — 68.17 Percentile</p>
-        <p class="ach-sub">Cleared the Tata Consultancy Services national assessment, demonstrating aptitude in technical and analytical domains at a competitive national level.</p>
-      </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 02 · Career</div>
+      <div class="section-title">Experience</div>
     </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jul 2025 – Present</div>
+      <div class="timeline-role">Assistant Manager – EOT Crane Maintenance (E&I)</div>
+      <div class="timeline-company">JSW Steel Limited · Vijaynagar, Karnataka</div>
+      <ul class="timeline-bullets">
+        <li>Oversee E&amp;I maintenance of 200+ EOT cranes across Steel Melt Shop, Blast Furnace, Rolling Mills, and Coke Ovens; manage PM schedules, predictive programs, and annual shutdown plans.</li>
+        <li>Lead RCFA investigations on recurring failures (hoist motors, VFD trips, rope drum faults) — reduced repeat breakdowns by <strong>38%</strong>; introduced vibration monitoring and thermal imaging checks.</li>
+        <li>Troubleshoot VFDs, PLCs, VVVF drives, control panels, and instrumentation; coordinated OEM firmware upgrades for 12 SMS cranes during planned shutdown, improving torque and speed control.</li>
+        <li>Monitor MTBF, MTTR, PM compliance, and availability KPIs; report weekly to plant management. Coordinate with Operations, OEMs, and contractors to align maintenance windows with production.</li>
+        <li>Raised 120+ Safety Observations; ensured PTW compliance; led Kaizen reducing breakdown response time from <strong>45 min to 18 min</strong>. Maintained zero LTI for 14 consecutive months in crane zone.</li>
+        <li>Drove digitalization — built Power BI dashboards and Power Automate workflows eliminating <strong>3+ hrs/day</strong> of manual reporting across 4 maintenance teams.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jul 2024 – Jun 2025</div>
+      <div class="timeline-role">Graduate Engineer Trainee (GET)</div>
+      <div class="timeline-company">JSW Steel Limited · Vijaynagar, Karnataka</div>
+      <ul class="timeline-bullets">
+        <li>Trained across Operations, Electrical &amp; Instrumentation, and Maintenance departments; gained exposure to EOT crane systems, industrial automation, SCADA monitoring, and plant coordination.</li>
+        <li>Assisted PM scheduling, equipment history logging, downtime data analysis, and inter-departmental operational reporting and monitoring activities.</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
-<!-- ── EDUCATION ────────────────────────────────────────────────── -->
-<section id="education" class="sec" style="background:var(--plate)">
-  <div class="sec-inner">
-    <p class="sec-tag reveal">// Education &amp; Certifications</p>
-    <h2 class="sec-title reveal">Credentials</h2>
-    <div class="gold-bar reveal"></div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 03 · Work</div>
+      <div class="section-title">Key Projects</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-    <div class="edu-wrap">
-      <div class="edu-card reveal">
-        <h3 class="edu-degree">Bachelor of Engineering<br>Electrical &amp; Electronics Engineering</h3>
-        <p class="edu-school">Sona College of Technology, Salem, Tamil Nadu · 2020–2024</p>
-        <p class="edu-cgpa">CGPA: 8.98 / 10.0</p>
-        <p class="edu-highlight">Strong foundation in electrical systems, control systems, and embedded electronics — directly applicable to heavy industrial crane systems and manufacturing equipment environments. Final-year project in AI-powered industrial predictive maintenance. EEE background provides the rare combination of electrical domain knowledge and analytical thinking needed for Industry 4.0 roles.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-category">Reliability · Maintenance</div>
+      <div class="project-title">EOT Crane Reliability Improvement Program</div>
+      <div class="project-desc">
+        Identified top-10 repeat-breakdown crane assets across Steel Melt Shop and Rolling Mill divisions using historical maintenance data. Executed structured RCFA for hoist motor failures, VFD tripping events, and rope drum faults.
       </div>
-      <div class="cert-stack reveal">
-        <div class="cert-row">
-          <div class="cert-dot"></div>
-          <div>
-            <strong>Microsoft Power BI Data Analyst Associate (PL-300)</strong>
-            <span>In Progress · Expected 2025</span>
-          </div>
+      <ul class="project-results">
+        <li>38% reduction in repeat failures</li>
+        <li>25% reduction in unplanned stoppages</li>
+        <li>Introduced vibration monitoring and thermal imaging predictive maintenance</li>
+        <li>Built failure mode libraries and crane-specific PM checklists</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">RCFA</span>
+        <span class="tag">Vibration Analysis</span>
+        <span class="tag">MTBF/MTTR</span>
+        <span class="tag">Predictive Maintenance</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Standardization · Shutdown</div>
+      <div class="project-title">PM Standardization & VFD Overhaul – Steel Melt Shop</div>
+      <div class="project-desc">
+        Audited PM practices across 5 plant divisions. Developed comprehensive SOPs for all crane categories from 5T to 350T — covering wire rope inspection, brake adjustment, electrical panel checks, and limit switch calibration.
+      </div>
+      <ul class="project-results">
+        <li>PM compliance improved from 67% to 92% within 6 months</li>
+        <li>Led shutdown maintenance for 12 SMS cranes — VFD backup, capacitor replacement, cooling system cleaning, drive alignment</li>
+        <li>OEM firmware upgrades for torque and speed control optimization</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">SOP Development</span>
+        <span class="tag">PM Scheduling</span>
+        <span class="tag">VFD Maintenance</span>
+        <span class="tag">Shutdown Execution</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Safety · Compliance</div>
+      <div class="project-title">Crane Safety & Compliance Improvement Initiative</div>
+      <div class="project-desc">
+        Raised 120+ Safety Observations identifying unsafe conditions in crane operation areas. Developed PTW compliance checklists specific to crane maintenance tasks.
+      </div>
+      <ul class="project-results">
+        <li>Zero LTI for 14 consecutive months in crane maintenance zone</li>
+        <li>Breakdown response time reduced from 45 minutes to 18 minutes via zone-based Kaizen initiative</li>
+        <li>Conducted toolbox talks and safety training sessions for maintenance and operations teams</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Safety Observations</span>
+        <span class="tag">PTW Systems</span>
+        <span class="tag">Kaizen</span>
+        <span class="tag">SOP</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Digital · Power BI · SQL</div>
+      <div class="project-title">Centralized Plant Maintenance Dashboard System</div>
+      <div class="project-desc">
+        Architected a centralized Power BI dashboard integrating maintenance data from 15+ plant divisions into a single real-time monitoring platform. Built SQL-based data pipelines for automated collection, transformation, and loading of maintenance records, work orders, and breakdown logs.
+      </div>
+      <ul class="project-results">
+        <li>Eliminated 3+ hours/day of manual reporting across 4 maintenance teams</li>
+        <li>Dashboard adopted plant-wide — used by departmental managers and plant head for daily shift reviews</li>
+        <li>Enabled management-level drill-down from plant-wide to equipment-level analysis</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Power BI</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power Automate</span>
+        <span class="tag">SharePoint</span>
+        <span class="tag">Excel</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Full-Stack · Web Application</div>
+      <div class="project-title">Fleet Management System – Web Application</div>
+      <div class="project-desc">
+        Designed and developed a full-stack web application for managing plant vehicle and equipment fleet data — replacing a manual Excel-based tracking system. Built responsive frontend UI with real-time data entry, search, filtering, and status tracking for 50+ plant vehicles.
+      </div>
+      <ul class="project-results">
+        <li>Data retrieval time reduced from 20+ minutes to under 2 minutes</li>
+        <li>Enabled audit-ready digital record keeping across plant locations</li>
+        <li>Integrated Firebase Realtime Database for live sync and SQL modules for maintenance scheduling and fuel tracking</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">HTML/CSS/JS</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Full-Stack</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 04 · Capabilities</div>
+      <div class="section-title">Technical Skills</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skills-group-title">Maintenance &amp; Engineering</div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">EOT Crane Maintenance (5T–350T)</span><span class="skill-pct">95%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">VFD / VVVF / Drive Systems</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">PLC / SCADA / Instrumentation</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Root Cause Failure Analysis (RCFA)</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Predictive & Preventive Maintenance</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">MTBF / MTTR / KPI Monitoring</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">PTW & Industrial Safety</span><span class="skill-pct">92%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
+      </div>
+
+      <div style="margin-top: 36px;">
+        <div class="skills-group-title">Other Engineering Skills</div>
+        <div class="tags-cloud">
+          <span class="tag-lg">Shutdown Maintenance</span>
+          <span class="tag-lg">Electrical Troubleshooting</span>
+          <span class="tag-lg">SOP Preparation</span>
+          <span class="tag-lg">Spare Planning</span>
+          <span class="tag-lg">Kaizen & CI</span>
+          <span class="tag-lg">Breakdown Rectification</span>
+          <span class="tag-lg">Thermal Imaging</span>
+          <span class="tag-lg">Vibration Analysis</span>
         </div>
-        <div class="cert-row">
-          <div class="cert-dot"></div>
-          <div>
-            <strong>Microsoft Power Automate RPA Developer (PL-500)</strong>
-            <span>In Progress · Expected 2025</span>
-          </div>
-        </div>
-        <div class="cert-row">
-          <div class="cert-dot"></div>
-          <div>
-            <strong>NPTEL — Introduction to Industry 4.0 &amp; Industrial IoT</strong>
-            <span>Elite Score: 69% · IIT Certification</span>
-          </div>
-        </div>
-        <div class="cert-row">
-          <div class="cert-dot"></div>
-          <div>
-            <strong>InternEZY — Data Structures &amp; Algorithms</strong>
-            <span>Nov–Dec 2022 · Best Ongoing Student Award</span>
-          </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skills-group-title">Software &amp; Digital</div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Power BI (Dashboard Development)</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Power Automate</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">SQL (Data Pipelines)</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Microsoft Excel (Advanced)</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">HTML / CSS / JavaScript</span><span class="skill-pct">78%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Firebase</span><span class="skill-pct">75%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name-row"><span class="skill-name">Data Visualization & Analytics</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+      </div>
+
+      <div style="margin-top: 36px;">
+        <div class="skills-group-title">Tools & Platforms</div>
+        <div class="tags-cloud">
+          <span class="tag-lg">Automated Reporting Systems</span>
+          <span class="tag-lg">Maintenance Data Analysis</span>
+          <span class="tag-lg">SharePoint</span>
+          <span class="tag-lg">Web App Development</span>
+          <span class="tag-lg">Fusion 360</span>
+          <span class="tag-lg">SCADA Monitoring</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CONTACT ──────────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="contact-inner">
-    <p class="sec-tag" style="text-align:center;margin-bottom:0.8rem">// Let's Connect</p>
-    <h2 class="contact-headline reveal">OPEN TO<br><span>OPPORTUNITIES</span></h2>
-    <p class="contact-sub reveal">
-      Digitalization &amp; Automation · Manufacturing Analytics · Industry 4.0<br>
-      Bengaluru preferred · Open to relocation · Pan-India
-    </p>
-    <div class="contact-grid reveal">
-      <a href="mailto:yam.mrthy@gmail.com" class="c-link"><span class="c-icon">✉</span> yam.mrthy@gmail.com</a>
-      <a href="tel:+918489500818" class="c-link"><span class="c-icon">📱</span> +91 84895-00818</a>
-      <a href="https://linkedin.com/in/yammrthy" target="_blank" class="c-link"><span class="c-icon">💼</span> linkedin.com/in/yammrthy</a>
-      <a href="https://yammrthy.github.io" target="_blank" class="c-link"><span class="c-icon">🌐</span> yammrthy.github.io</a>
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 05 · Impact</div>
+      <div class="section-title">Key Achievements</div>
     </div>
-    <a href="mailto:yam.mrthy@gmail.com" class="btn-gold reveal">Send a Message →</a>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-icon">📉</div>
+      <div class="achievement-text">
+        <strong>38% ↓</strong>
+        <span>Repeat crane breakdown frequency via structured RCFA-driven corrective action across SMS and Rolling Mill divisions</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">✅</div>
+      <div class="achievement-text">
+        <strong>67→92%</strong>
+        <span>PM compliance improvement within 6 months through standardized scheduling and cross-shift coordination</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">⏱️</div>
+      <div class="achievement-text">
+        <strong>3+ Hrs</strong>
+        <span>Per day of manual maintenance reporting eliminated across 4 teams through Power BI and Power Automate automation</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">🛡️</div>
+      <div class="achievement-text">
+        <strong>14 Months</strong>
+        <span>Zero LTI (Lost Time Injury) in crane maintenance zone through proactive safety observation programs</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">⚡</div>
+      <div class="achievement-text">
+        <strong>45→18 Min</strong>
+        <span>Crane breakdown response time reduction via zone-based rapid-response Kaizen initiative</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">📊</div>
+      <div class="achievement-text">
+        <strong>15+ Divisions</strong>
+        <span>Plant-wide centralized dashboard system adopted for daily operational and maintenance tracking by all departments</span>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">// 06 · Academic</div>
+      <div class="section-title">Education</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-badge">B.E.</div>
+    <div>
+      <div class="edu-degree">Bachelor of Engineering – Electrical &amp; Electronics Engineering</div>
+      <div class="edu-institute">Sona College of Technology, Salem, Tamil Nadu</div>
+      <div class="edu-meta">
+        <div class="edu-meta-item">CGPA: <span>8.98</span></div>
+        <div class="edu-meta-item">Graduated: <span>2024</span></div>
+        <div class="edu-meta-item">Program: <span>Electrical &amp; Electronics Engineering</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Yamuna Moorthy · Digitalization &amp; Automation Engineer</p>
-  <p>Hosted on GitHub Pages · yammrthy.github.io</p>
+  <div class="footer-name">Yamuna<span>.</span>Moorthy</div>
+  <div class="footer-links">
+    <a href="mailto:yam.mrthy@gmail.com">Email</a>
+    <a href="tel:+918895000818">+91-8895-00818</a>
+    <a href="https://linkedin.com/in/yammrthy" target="_blank">LinkedIn</a>
+    <a href="https://yammrthy.github.io" target="_blank">Portfolio</a>
+  </div>
+  <div class="footer-open">
+    Open to opportunities
+    <span>Maintenance · Reliability · Plant Digitalization · Analytics</span>
+  </div>
 </footer>
 
 <script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting){
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
-      io.unobserve(e.target);
+// ── Intersection Observer for scroll reveals ──
+const observerOpts = { threshold: 0.15 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = el.dataset.delay || 0;
+      setTimeout(() => el.classList.add('visible'), delay);
+      observer.unobserve(el);
     }
   });
-},{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
-reveals.forEach(el => io.observe(el));
+}, observerOpts);
 
-// Active nav
-const secs = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if(window.scrollY >= s.offsetTop - 140) cur = s.id; });
-  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${cur}`));
+// Stats bar
+document.querySelectorAll('.stat-item').forEach((el, i) => {
+  el.dataset.delay = i * 100;
+  observer.observe(el);
 });
 
-// Project filter
-const filterBtns = document.querySelectorAll('.pf-btn');
-const projCards = document.querySelectorAll('.proj-card');
+// Timeline
+document.querySelectorAll('.timeline-item').forEach((el, i) => {
+  el.dataset.delay = i * 180;
+  observer.observe(el);
+});
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    projCards.forEach(card => {
-      const tags = card.dataset.tags || '';
-      if(f === 'all' || tags.includes(f)){
-        card.style.display = '';
-        card.style.opacity = '1';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+// Project cards
+document.querySelectorAll('.project-card').forEach((el, i) => {
+  el.dataset.delay = i * 120;
+  observer.observe(el);
+});
+
+// Achievement cards
+document.querySelectorAll('.achievement-card').forEach((el, i) => {
+  el.dataset.delay = i * 100;
+  observer.observe(el);
+});
+
+// ── Skill bar animation ──
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        const w = bar.dataset.width;
+        setTimeout(() => { bar.style.width = w + '%'; }, 200);
+      });
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+const skillsSection = document.getElementById('skills');
+if (skillsSection) skillObserver.observe(skillsSection);
+
+// ── Counter animation ──
+function animateCounter(el, target, duration = 1600) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start);
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('[data-target]').forEach(el => {
+        animateCounter(el, +el.dataset.target);
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) counterObserver.observe(statsBar);
+
+// ── Active nav link highlight ──
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'rgb(70,110,222)' : '';
   });
 });
 </script>
